@@ -52,7 +52,8 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
             else:
                 shutil.copy2(source, target)
         env = dict(os.environ)
-        env["PYTHONPATH"] = os.pathsep.join(str(p) for p in sys.path if p)
+        package_paths = [str(workspace / p) for p in entry.get("python_paths", [])]
+        env["PYTHONPATH"] = os.pathsep.join([*package_paths, *(str(p) for p in sys.path if p)])
         # uv --target installs console scripts beside the isolated dependencies.
         # Canonical tools such as tito invoke jupytext as a subprocess.
         script_dirs = [str(Path(p) / "bin") for p in sys.path if p and (Path(p) / "bin").is_dir()]
@@ -73,6 +74,9 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
         env["JUPYTER_CONFIG_DIR"] = str(workspace / ".jupyter-config")
         # Never inherit tracking auto-init defaults into the underlying lesson.
         env["WANDB_MODE"] = "disabled"
+        # A generated workspace may sit below a learner's Git checkout. Tools
+        # must not mistake that parent repository for this frozen source copy.
+        env["GIT_CEILING_DIRECTORIES"] = str(workspace.resolve())
         cwd = workspace / entry["working_directory"]
         timeout = entry.get("timeout_seconds", 180)
         if not 0 < timeout <= 600:

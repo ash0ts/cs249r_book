@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "group": "mlperf",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "mlperf-edu/src",
+        "mlperf-edu/examples",
+        "mlperf-edu/tutorials",
+        "mlperf-edu/pyproject.toml",
+        "mlperf-edu/README.md"
+      ],
+      "working_directory": "mlperf-edu",
+      "dependency_lock": "integrations/forge/mlperf-requirements.lock",
+      "timeout_seconds": 300,
+      "seed": 42,
+      "result_kind": "functional_smoke",
+      "config": {
+        "execution": "CPU-only canonical smoke; no benchmark score"
+      },
+      "python_paths": [
+        "mlperf-edu/src"
+      ],
+      "evidence_files": [
+        "forge-evidence.json"
+      ],
+      "id": "mlperf-lab1_optimization",
+      "source_path": "mlperf-edu/examples/lab1_optimization.py",
+      "title": "MLPerf EDU \u00b7 lab1 optimization",
+      "reason": "Run the canonical CPU smoke with quality/parity gates intact. Read its structured result after measurement, then publish only on request.",
+      "commands": [
+        [
+          "examples/lab1_optimization.py",
+          "--smoke",
+          "--output",
+          "result.json"
+        ],
+        [
+          "-m",
+          "mlsysbook_forge.mlperf",
+          "result.json",
+          "--output",
+          "forge-evidence.json"
+        ]
+      ]
+    },
+    {
+      "group": "mlperf",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "mlperf-edu/src",
+        "mlperf-edu/examples",
+        "mlperf-edu/tutorials",
+        "mlperf-edu/pyproject.toml",
+        "mlperf-edu/README.md"
+      ],
+      "working_directory": "mlperf-edu",
+      "dependency_lock": "integrations/forge/mlperf-requirements.lock",
+      "timeout_seconds": 300,
+      "seed": 42,
+      "result_kind": "functional_smoke",
+      "config": {
+        "execution": "CPU-only canonical smoke; no benchmark score"
+      },
+      "python_paths": [
+        "mlperf-edu/src"
+      ],
+      "evidence_files": [
+        "forge-evidence.json"
+      ],
+      "id": "mlperf-lab2_inference_sut",
+      "source_path": "mlperf-edu/examples/lab2_inference_sut.py",
+      "title": "MLPerf EDU \u00b7 lab2 inference sut",
+      "reason": "Run the canonical CPU smoke with quality/parity gates intact. Read its structured result after measurement, then publish only on request.",
+      "commands": [
+        [
+          "examples/lab2_inference_sut.py",
+          "--smoke",
+          "--output",
+          "result.json"
+        ],
+        [
+          "-m",
+          "mlsysbook_forge.mlperf",
+          "result.json",
+          "--output",
+          "forge-evidence.json"
+        ]
+      ]
+    },
+    {
+      "group": "mlperf",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "mlperf-edu/src",
+        "mlperf-edu/examples",
+        "mlperf-edu/tutorials",
+        "mlperf-edu/pyproject.toml",
+        "mlperf-edu/README.md"
+      ],
+      "working_directory": "mlperf-edu",
+      "dependency_lock": "integrations/forge/mlperf-requirements.lock",
+      "timeout_seconds": 300,
+      "seed": 42,
+      "result_kind": "functional_smoke",
+      "config": {
+        "execution": "CPU-only canonical smoke; no benchmark score"
+      },
+      "python_paths": [
+        "mlperf-edu/src"
+      ],
+      "evidence_files": [
+        "forge-evidence.json"
+      ],
+      "id": "mlperf-lab3_arch_comparison",
+      "source_path": "mlperf-edu/examples/lab3_arch_comparison.py",
+      "title": "MLPerf EDU \u00b7 lab3 arch comparison",
+      "reason": "Run the canonical CPU smoke with quality/parity gates intact. Read its structured result after measurement, then publish only on request.",
+      "commands": [
+        [
+          "examples/lab3_arch_comparison.py",
+          "--smoke",
+          "--output",
+          "result.json"
+        ],
+        [
+          "-m",
+          "mlsysbook_forge.mlperf",
+          "result.json",
+          "--output",
+          "forge-evidence.json"
+        ]
+      ]
+    },
+    {
+      "group": "mlperf",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "mlperf-edu/src",
+        "mlperf-edu/examples",
+        "mlperf-edu/tutorials",
+        "mlperf-edu/pyproject.toml",
+        "mlperf-edu/README.md"
+      ],
+      "working_directory": "mlperf-edu",
+      "dependency_lock": "integrations/forge/mlperf-requirements.lock",
+      "timeout_seconds": 300,
+      "seed": 42,
+      "result_kind": "functional_smoke",
+      "config": {
+        "execution": "CPU-only canonical smoke; no benchmark score"
+      },
+      "python_paths": [
+        "mlperf-edu/src"
+      ],
+      "evidence_files": [
+        "forge-evidence.json"
+      ],
+      "id": "mlperf-tutorial-01",
+      "source_path": "mlperf-edu/tutorials/01_first_benchmark.py",
+      "title": "MLPerf EDU \u00b7 Anatomy of a benchmark run",
+      "reason": "Run and analyze the same verified report/provenance workflow as Tutorial 01. Its time-series min profile is a synthetic functional smoke, never a quality baseline.",
+      "commands": [
+        [
+          "tutorials/smoke_first_benchmark.py",
+          "--output-dir",
+          "tutorial-results"
+        ],
+        [
+          "-m",
+          "mlsysbook_forge.mlperf",
+          "tutorial-results/time-series-forecasting_min_report.json",
+          "--manifest",
+          "tutorial-results/time-series-forecasting_min.provd.json",
+          "--output",
+          "forge-evidence.json"
+        ]
+      ]
+    }
+  ]
+}

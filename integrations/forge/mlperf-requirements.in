@@ -1,0 +1,8 @@
+-r companion-requirements.in
+# CPU wheels for the bounded teaching smoke. GPU benchmarking uses its own environment.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu ; sys_platform == 'linux'
+torch==2.13.0 ; sys_platform != 'linux'
+torchvision==0.28.0+cpu ; sys_platform == 'linux'
+torchvision==0.28.0 ; sys_platform != 'linux'
+platformdirs==4.5.0

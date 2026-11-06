@@ -121,3 +121,18 @@ def test_profile_evidence_is_collected_after_command_completion(tmp_path):
     report = execute_commands(runtime, entry, source_commit='e' * 40, directory=tmp_path / 'runs')
     assert report['status'] == 'passed'
     assert report['commands'][0]['profiling']['measurements'][0]['value'] == 1.25
+
+
+def test_hosted_child_does_not_wait_for_terminal_and_records_cpu_controls(tmp_path):
+    runtime = tmp_path / 'runtime'
+    (runtime / 'lesson').mkdir(parents=True)
+    entry = {'source_path': 'lesson', 'workspace_roots': ['lesson'],
+             'working_directory': 'lesson', 'group': 'tinytorch-milestones',
+             'cpu_threads': 1, 'commands': [['-c',
+                 "import os,sys; assert sys.stdin.read()==''; "
+                 "assert os.environ['TINYTORCH_NON_INTERACTIVE']=='1'; "
+                 "assert all(os.environ[k]=='1' for k in ['OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'])"]],
+             'result_kind': 'functional_smoke', 'timeout_seconds': 5}
+    report = execute_commands(runtime, entry, source_commit='f' * 40, directory=tmp_path / 'runs')
+    assert report['status'] == 'passed'
+    assert report['execution_controls'] == {'stdin': 'closed', 'cpu_threads': 1}

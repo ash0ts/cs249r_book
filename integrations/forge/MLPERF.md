@@ -1,5 +1,11 @@
 # MLPerf EDU report companions
 
+CPU wheel sources are scoped to the official PyTorch `torch` and `torchvision`
+wheel pages through `--find-links`. Other dependencies resolve from PyPI. This
+keeps their complete wheel hashes available across supported Python versions
+instead of inheriting a partial mirror from the PyTorch index. Generated
+PEP 723 metadata preserves these wheel locations.
+
 Four companions cover the implemented Tutorial 01 workflow and the three implemented CLI labs. They invoke the public tutorial smoke or lab CLI, preserving its quality, finite-value and token-parity gates. The original tutorial and CLI files remain intact. The tutorial's proposed future sessions remain roadmap material.
 
 The default runs are CPU functional smokes. Tutorial 01 uses the canonical synthetic time-series `min` profile; the other labs use their explicit `--smoke` flags. These verify functionality and reporting, not forecasting quality, convergence, or public benchmark scores. See the [canonical tutorial rules](../../mlperf-edu/tutorials/README.md).

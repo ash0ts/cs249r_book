@@ -43,3 +43,11 @@ The companion lock includes TinyTorch's canonical nbdev/jupytext export tools;
 all generated notebooks, exported packages and datasets remain outside Git.
 
 The CIFAR-10 companion defaults to the canonical `--test-only` architecture check: a synthetic forward pass with no training and no milestone completion claim. The full training path requires the real ~170 MB CIFAR-10 download and an interactive prompt or explicit `TINYTORCH_AUTO_DOWNLOAD=1`; use the canonical CLI for that separate experiment. The TinyDigits CNN companion retains its actual training metrics.
+
+The embeddings module (11) has a runtime constraint: its full inline notebook
+analysis was OOM-killed in a 4 GiB hosted runtime (child exit -9; cgroup OOM
+counter incremented). Its separate 37 module and 32 integration tests passed.
+Use a local machine with more memory for the complete workflow. The hosted
+companion opens and preserves evidence, but its default 4 GiB runtime does not
+establish full module completion. No tests, array sizes or workload iterations
+are removed to turn this failure into a pass.

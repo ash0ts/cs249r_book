@@ -504,7 +504,8 @@
       "timeout_seconds": 180,
       "seed": null,
       "config": {
-        "randomness": "Canonical source controls its RNG; no global reseeding."
+        "randomness": "Canonical source controls its RNG; no global reseeding.",
+        "runtime_constraint": "Full inline embeddings analysis exceeds 4 GiB; use a larger local runtime. No numerical tests are skipped."
       },
       "id": "tinytorch-module-11",
       "title": "TinyTorch 11 embeddings",
@@ -527,7 +528,7 @@
           "11"
         ]
       ],
-      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules. The complete inline notebook analysis exceeds a 4 GiB hosted runtime: its child process was OOM-killed even though the separate 37 module and 32 integration tests passed. Run the full companion on a machine with more memory; default hosted execution is not fully validated."
     },
     {
       "generator": "companion",

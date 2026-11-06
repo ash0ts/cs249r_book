@@ -28,11 +28,15 @@ def inventory(root: Path, commit: str) -> list[dict]:
                 disposition, reason = "local/hardware-only", "CI smoke entrypoint validates its corresponding teaching notebook."
         elif path.startswith("kits/") and path.endswith(".qmd"):
             group, disposition, reason = "hardware", "local/hardware-only", "Device operations require the specified physical kit; companions analyze imported measurements."
+            if path.endswith(('/404.qmd', '/index.qmd', '/shared.qmd', '/platforms.qmd', '/raspi.qmd', '/nicla_vision.qmd', '/xiao_esp32s3.qmd', '/grove_vision_ai_v2.qmd')):
+                disposition, reason = "excluded", "Navigation or platform overview; analysis companions are attached to the individual executable lessons."
+            elif 'setup' in path or 'getting-started' in path:
+                reason = "Physical device, local drivers, IDE, firmware or no-code device setup; hosted compute cannot perform this setup."
         else:
             continue
         row = {"id": path.removesuffix(Path(path).suffix).replace("/", "-"), "source_path": path,
                "group": group, "disposition": disposition, "reason": reason,
-               "implementation": "pending", "validation": "unvalidated"}
+               "implementation": "not applicable" if disposition in {"excluded", "local/hardware-only"} else "pending", "validation": "unvalidated"}
         if path in registered:
             row.update(registered[path])
             row["implementation"] = "registered"

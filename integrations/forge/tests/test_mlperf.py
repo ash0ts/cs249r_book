@@ -57,3 +57,14 @@ def test_companion_preserves_scoped_wheel_sources_in_pep723(tmp_path, monkeypatc
     metadata = tomllib.loads('\n'.join(line.removeprefix('# ') for line in block.splitlines()))
     assert metadata['tool']['uv']['find-links'] == wheels
     assert 'extra-index-url' not in metadata['tool']['uv']
+
+
+def test_complete_lock_has_hashes_for_every_platform_requirement():
+    import re
+    from pathlib import Path
+    lock = (Path(__file__).parents[1] / 'mlperf-requirements.lock').read_text()
+    blocks = re.split(r'(?m)(?=^[A-Za-z0-9_-]+==)', lock)[1:]
+    assert blocks
+    missing = [block.splitlines()[0] for block in blocks
+               if not re.search(r'--hash=sha256:[0-9a-f]{64}(?:\s|$)', block)]
+    assert missing == []

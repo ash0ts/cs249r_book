@@ -4,6 +4,7 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+import re
 from pathlib import Path
 
 from .packaging import MAX_SOURCE_BYTES, bootstrap_source, read_source, runtime_bundle
@@ -23,7 +24,12 @@ def build_companion(root: Path, commit: str, entry: dict, output: Path, requirem
                     "and are not benchmark scores. Logs stay local; publishing evidence is a separate action.")
     source = '# /// script\n# requires-python = ">=3.13,<3.15"\n# dependencies = [\n'
     source += ''.join(f'#   {json.dumps(dep)},\n' for dep in requirements)
-    source += '# ]\n# ///\n'
+    source += '# ]\n'
+    lock = read_source(root, commit, entry["dependency_lock"]).decode()
+    indexes = re.findall(r'^--extra-index-url\s+(\S+)', lock, re.M)
+    if indexes:
+        source += '# [tool.uv]\n# extra-index-url = ' + json.dumps(indexes) + '\n'
+    source += '# ///\n'
     source += f'''import marimo
 
 __generated_with = "0.25.1"

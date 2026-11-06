@@ -111,7 +111,7 @@ def run_evaluation(config: dict, *, budget_path: Path, output_dir: Path, attempt
                 try:
                     selection = {"name": call.name, "arguments": json.loads(call.arguments)}
                     record["selection"] = selection
-                    record["tool_result"] = tool_op(**selection)
+                    record["tool_result_json"] = json.dumps(tool_op(**selection))
                 except (ValueError, TypeError, KeyError):
                     record["tool_error"] = "invalid selection or arguments"
         except Exception as error:

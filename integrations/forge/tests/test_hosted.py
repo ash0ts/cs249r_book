@@ -82,3 +82,11 @@ def test_hosted_failure_preserved_and_reexecution_deduplicated(tmp_path, monkeyp
     assert len(list((tmp_path / 'outputs').glob('*/evaluation-*.json'))) == 6
     assert run_evaluation(config(), **options) == result
     assert len(calls) == 6
+
+
+def test_heterogeneous_tool_results_do_not_break_native_summary():
+    pytest.importorskip('weave')
+    from weave.flow.scorer import auto_summarize
+    records = [{'tool_result_json': json.dumps(execute_tool(**row['expected']))}
+               for row in tasks('evaluation')]
+    assert auto_summarize(records) == {}

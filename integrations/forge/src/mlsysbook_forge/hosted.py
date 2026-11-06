@@ -87,7 +87,7 @@ def run_evaluation(config: dict, *, budget_path: Path, output_dir: Path, attempt
             weave_sdk.init(config["project"], settings={"capture_code": False,
                 "capture_client_info": False, "capture_system_info": False,
                 "implicitly_patch_integrations": False, "print_call_link": False,
-                "client_parallelism": 1}, global_attributes={"source_commit": config["source_commit"],
+                "client_parallelism": 1}, attributes={"source_commit": config["source_commit"],
                 "dataset_sha256": digest(rows), "attempt": attempt, "result_kind": "hosted_model_execution"})
             weave = weave_sdk
         except Exception as error:

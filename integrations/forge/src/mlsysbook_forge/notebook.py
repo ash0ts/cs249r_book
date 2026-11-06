@@ -46,5 +46,5 @@ def capture_panel(mo, getter, *, lab_id: str, source_commit: str, result_kind: s
         mo.md("### Optional Forge evidence\nSaved comparisons retain their original result provenance. "
               "Analytical and supplied results are not device measurements or model executions."),
         mo.hstack([mode, entity, project]), button,
-        mo.accordion({"Preview evidence": mo.json(saved)}),
+        mo.accordion({"Preview evidence": mo.json(saved or {})}),
     ]), button

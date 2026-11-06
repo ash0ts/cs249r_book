@@ -1,5 +1,10 @@
 # TinyTorch companions
 
+Build companions in the pinned Marimo 0.25.1 environment. The builder runs
+Marimo's safe source formatter before hashing the notebook, so opening it in
+the editor does not change cell signatures or its publication digest. This
+formatting step does not execute any teaching cells.
+
 The 20 module companions execute `tito dev export --all` and the selected
 `tito module test NN` in a new disposable workspace. They preserve the canonical
 source, student notebooks, grading cells and module workflow. Exporting source

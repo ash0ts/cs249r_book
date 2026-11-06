@@ -3,10 +3,34 @@ from __future__ import annotations
 
 import ast
 import hashlib
+from importlib import metadata
 import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 from .packaging import MAX_SOURCE_BYTES, bootstrap_source, read_source, runtime_bundle
+
+
+def normalize_marimo(path: Path) -> bytes:
+    """Match the pinned editor's saved format before computing its digest.
+
+    Marimo canonicalizes cell signatures, unused returns and Markdown layout.
+    The check command never executes lesson cells; only safe fixes are enabled.
+    """
+    if metadata.version("marimo") != "0.25.1":
+        raise RuntimeError("Build companions with the pinned marimo==0.25.1 environment")
+    process = subprocess.run(
+        [sys.executable, "-m", "marimo", "check", "--fix", str(path)],
+        env={**os.environ, "MARIMO_MANAGE_SCRIPT_METADATA": "false"},
+        capture_output=True, timeout=60,
+    )
+    if process.returncode:
+        raise ValueError("Generated companion failed Marimo's source checks: "
+                         + process.stdout.decode(errors="replace")
+                         + process.stderr.decode(errors="replace"))
+    return path.read_bytes()
 
 
 def build_companion(root: Path, commit: str, entry: dict, output: Path, requirements: list[str],
@@ -86,6 +110,9 @@ if __name__ == "__main__":
         raise ValueError("Use an immutable private runtime artifact for this larger companion bundle")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(encoded)
+    encoded = normalize_marimo(output)
+    if len(encoded) > MAX_SOURCE_BYTES:
+        raise ValueError("Normalized companion exceeds the hosted source size limit")
     runtime_path = output.parent / "runtime" / f"{manifest['bundle_sha256']}.xz"
     runtime_path.parent.mkdir(parents=True, exist_ok=True)
     runtime_path.write_bytes(payload)

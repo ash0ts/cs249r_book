@@ -8,7 +8,7 @@ from .packaging import git, registered_entries
 
 
 def inventory(root: Path, commit: str) -> list[dict]:
-    registered = {entry["source_path"]: entry for entry in registered_entries(root)}
+    registered = {entry["source_path"]: entry for entry in registered_entries(root, commit)}
     paths = git(root, "ls-tree", "-r", "--name-only", commit).decode().splitlines()
     rows = []
     for path in paths:

@@ -1,5 +1,5 @@
 # Runtime used for generated Co-Labs. Compile to a hash-pinned lock before publishing.
-marimo==0.24.0
+marimo==0.25.1
 numpy==2.5.4
 pydantic==2.14.3
 pint==0.26.2

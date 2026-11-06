@@ -14,6 +14,7 @@ def test_standalone_bootstrap_has_no_checkout_dependency(tmp_path):
     output = io.BytesIO()
     with zipfile.ZipFile(output, "w") as z:
         z.writestr("labs/example.py", "VALUE = 17\n")
+        z.writestr("integrations/forge/src/mlsysbook_forge/bootstrap.py", "def ensure_dependencies(path):\n    pass\n")
     payload = output.getvalue()
     boot = textwrap.dedent(bootstrap_source(payload, {"bundle_sha256": hashlib.sha256(payload).hexdigest()}))
     script = "from pathlib import Path\nimport sys\n" + boot + "\nimport example\nassert example.VALUE == 17\n"

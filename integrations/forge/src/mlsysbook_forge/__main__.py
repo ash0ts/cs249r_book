@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from .coverage import inventory
-from .packaging import build_marimo, registered_entries, revision
+from .packaging import build_marimo, read_source, registered_entries, revision
 
 
 def main():
@@ -17,14 +17,14 @@ def main():
     args = parser.parse_args()
     root = args.root.resolve()
     commit = revision(root, args.revision)
-    entries = registered_entries(root)
+    entries = registered_entries(root, commit)
     if args.command == "catalog":
         print(json.dumps(inventory(root, commit), indent=2))
         return
     selected = [e for e in entries if not args.lab_id or e["id"] == args.lab_id]
     if not selected:
         parser.error("No registered entry matches")
-    requirements = [line.strip() for line in (root / "integrations/forge/notebook-requirements.in").read_text().splitlines()
+    requirements = [line.strip() for line in read_source(root, commit, "integrations/forge/notebook-requirements.in").decode().splitlines()
                     if line.strip() and not line.startswith("#")]
     for entry in selected:
         if entry.get("generator") != "marimo":

@@ -89,4 +89,4 @@ def test_heterogeneous_tool_results_do_not_break_native_summary():
     from weave.flow.scorer import auto_summarize
     records = [{'tool_result_json': json.dumps(execute_tool(**row['expected']))}
                for row in tasks('evaluation')]
-    assert auto_summarize(records) == {}
+    assert auto_summarize(records) is None

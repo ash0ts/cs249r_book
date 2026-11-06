@@ -36,7 +36,7 @@ def main():
         selected_requirements = requirements
         if entry.get("dependency_lock"):
             lock = read_source(root, commit, entry["dependency_lock"]).decode()
-            selected_requirements = re.findall(r"^[a-zA-Z0-9_-]+==[^\s;\\]+", lock, re.M)
+            selected_requirements = [line.strip() for line in re.findall(r"^[a-zA-Z0-9_-]+==[^\\\n]+", lock, re.M)]
         receipt = builder(root, commit, entry, args.output / f"{entry['id']}.py", selected_requirements,
                           asset_reference=args.runtime_artifact)
         print(json.dumps(receipt))

@@ -27,3 +27,9 @@ No model or device execution is inferred from a supplied trace.
 All 21 canonical Co-Labs are registered. Keep supplied instructional cases and their provenance explicit; no fabricated model executions or Weave traces.
 The original saved evidence retains model assumptions and result provenance.
 No model or device execution is inferred from a supplied trace.
+
+## Volume 4
+
+All 19 canonical Co-Labs are registered. Preserve physical assumptions, units, constraints and supplied traces; these are not device measurements.
+The original saved evidence retains model assumptions and result provenance.
+No model or device execution is inferred from a supplied trace.

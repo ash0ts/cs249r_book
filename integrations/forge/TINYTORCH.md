@@ -19,7 +19,10 @@ execution. Commands have a 180-second limit and kill their process group on
 timeout; a timeout is a failed validation, not a score.
 
 Each run records source revision, command/configuration, return code, units and
-elapsed time. Training and profiling output remains in local command logs. Explicit printed
+elapsed time. Raw training and profiling output remains in local command logs. The
+optimization companion extracts allowlisted profiler table values after measurement,
+including parameter/FLOP counts, latency and serial rate, with units, line numbers
+and a log digest. It does not add work inside the canonical timing loop. Explicit printed
 `Epoch / Loss / Train / Test` rows are extracted as numerical evidence with
 line numbers, units, a log digest and a printed-precision label. Unrecognized
 formats are not guessed; an empty epoch list is not proof that training ran.

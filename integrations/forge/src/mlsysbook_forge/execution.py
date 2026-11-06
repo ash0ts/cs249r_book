@@ -11,7 +11,7 @@ import sys
 import time
 
 from .evidence import digest
-from .training_evidence import printed_epoch_evidence
+from .training_evidence import printed_epoch_evidence, printed_profile_evidence
 
 
 def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
@@ -84,6 +84,9 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
                                        "elapsed_seconds": time.monotonic() - started})
             if entry.get("capture_printed_epochs"):
                 report["commands"][-1]["training"] = printed_epoch_evidence(
+                    (directory / f"command-{index}.log").read_bytes())
+            if entry.get("capture_printed_profile"):
+                report["commands"][-1]["profiling"] = printed_profile_evidence(
                     (directory / f"command-{index}.log").read_bytes())
             if code:
                 report["status"] = "timed_out" if code == 124 else "failed"

@@ -1466,7 +1466,8 @@
         ]
       ],
       "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
-      "capture_printed_epochs": true
+      "capture_printed_epochs": true,
+      "capture_printed_profile": true
     },
     {
       "generator": "companion",

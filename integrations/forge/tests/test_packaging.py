@@ -53,3 +53,14 @@ def test_receipt_requires_persisted_source_and_reopen(tmp_path):
     assert replacement_action(b"updated", source, build) == "update"
     with pytest.raises(ValueError, match="manual edits"):
         replacement_action(b"updated", b"user edit", build)
+
+
+def test_empty_lesson_evidence_renders_without_publishing(tmp_path, monkeypatch):
+    mo = pytest.importorskip("marimo")
+    from mlsysbook_forge.notebook import capture_panel
+    monkeypatch.chdir(tmp_path)
+    panel, button = capture_panel(mo, lambda: None, lab_id="empty", source_commit="a" * 40,
+                                  result_kind="supplied_case")
+    assert "Optional Forge evidence" in panel.text
+    assert button.value == "Nothing published."
+    assert not (tmp_path / ".forge").exists()

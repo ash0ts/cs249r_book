@@ -90,3 +90,16 @@ def test_heterogeneous_tool_results_do_not_break_native_summary():
     records = [{'tool_result_json': json.dumps(execute_tool(**row['expected']))}
                for row in tasks('evaluation')]
     assert auto_summarize(records) is None
+
+
+def test_verified_usage_reconciliation_preserves_original_allowance(tmp_path):
+    budget = Budget(tmp_path / 'budget.db', ceiling_usd=100)
+    budget.reserve('notebook', 99, 'enforced maximum lifetime')
+    with pytest.raises(ValueError):
+        budget.reconcile('notebook', maximum_usd=1, evidence={'kind': 'estimate'})
+    budget.reconcile('notebook', maximum_usd=1, evidence={'kind': 'terminated_resource_usage',
+                     'terminated': True, 'maximum_usd': 1, 'source_reference': 'test-only provider receipt'})
+    budget.reserve('next-notebook', 2, 'enforced maximum lifetime')
+    assert budget.summary()['reserved_usd'] == 3
+    assert budget.summary()['original_reservations_usd'] == 101
+    assert budget.summary()['actual_billed_usd'] is None

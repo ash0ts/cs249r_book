@@ -66,3 +66,13 @@ def test_empty_lesson_evidence_renders_without_publishing(tmp_path, monkeypatch)
     assert "Optional Forge evidence" in panel.text
     assert button.value == "Nothing published."
     assert not (tmp_path / ".forge").exists()
+
+
+def test_hosted_asset_must_be_immutable_and_verified():
+    manifest = {"bundle_sha256": "a" * 64}
+    with pytest.raises(ValueError, match="pin"):
+        bootstrap_source(b"payload", manifest, "owner/project/runtime:latest")
+    source = bootstrap_source(b"payload", manifest, "owner/project/runtime:v0")
+    assert "owner/project/runtime:v0" in source
+    assert "checksum mismatch" in source
+    assert "WANDB_API_KEY" not in source

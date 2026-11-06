@@ -69,9 +69,21 @@ def runtime_bundle(root: Path, commit: str, extra_paths=()) -> tuple[bytes, dict
     return payload, manifest
 
 
-def bootstrap_source(payload: bytes, manifest: dict) -> str:
+def bootstrap_source(payload: bytes, manifest: dict, asset_reference: str | None = None) -> str:
     """Code inside a notebook's first cell; extraction never invokes a shell."""
     encoded = base64.b85encode(payload).decode()
+    if asset_reference:
+        if not re.fullmatch(r"[^/\s]+/[^/\s]+/[^/:\s]+:v[0-9]+", asset_reference):
+            raise ValueError("Runtime artifacts must pin entity/project/collection:vN")
+        load = f'''    # Explicit hosted build: resolve this immutable private asset using
+    # the runtime's injected credentials. Never put credentials in this source.
+    import wandb as _asset_wandb
+    _asset = _asset_wandb.Api(timeout=30).artifact({asset_reference!r}, type="mlsysbook-runtime")
+    _asset_dir = _asset.download(root=str(Path.cwd() / ".forge" / "assets" / {manifest['bundle_sha256']!r}))
+    _bundle = Path(_asset_dir, "runtime.xz").read_bytes()
+'''
+    else:
+        load = f"    _bundle = _b64.b85decode({encoded!r})\n"
     return f'''    # MLSysBook runtime sources; see bundled component licenses.
     import base64 as _b64
     import hashlib as _hashlib
@@ -80,7 +92,7 @@ def bootstrap_source(payload: bytes, manifest: dict) -> str:
     import tempfile as _tempfile
     import zipfile as _zipfile
     import os as _os
-    _bundle = _b64.b85decode({encoded!r})
+{load.rstrip()}
     _bundle_sha = {manifest['bundle_sha256']!r}
     if _hashlib.sha256(_bundle).hexdigest() != _bundle_sha:
         raise ValueError("Notebook runtime bundle checksum mismatch")
@@ -145,10 +157,11 @@ def _(forge_publish, mo):
 '''
 
 
-def build_marimo(root: Path, commit: str, entry: dict, output: Path, requirements: list[str]) -> dict:
+def build_marimo(root: Path, commit: str, entry: dict, output: Path, requirements: list[str],
+                 *, asset_reference: str | None = None) -> dict:
     source_bytes = read_source(root, commit, entry["source_path"])
     payload, manifest = runtime_bundle(root, commit)
-    source = portable_marimo(source_bytes.decode(), bootstrap_source(payload, manifest))
+    source = portable_marimo(source_bytes.decode(), bootstrap_source(payload, manifest, asset_reference))
     marker = '\nif __name__ == "__main__":'
     if source.count(marker) != 1:
         raise ValueError("Unrecognized Marimo entry point")
@@ -164,11 +177,16 @@ def build_marimo(root: Path, commit: str, entry: dict, output: Path, requirement
         raise ValueError("Notebook exceeds the conservative 3500 KiB runtime transport budget")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(encoded)
+    runtime_path = output.parent / "runtime" / f"{manifest['bundle_sha256']}.xz"
+    runtime_path.parent.mkdir(parents=True, exist_ok=True)
+    if not runtime_path.exists():
+        runtime_path.write_bytes(payload)
     receipt = {
         "lab_id": entry["id"], "source_path": entry["source_path"], "source_commit": commit,
         "canonical_sha256": hashlib.sha256(source_bytes).hexdigest(),
         "content_sha256": hashlib.sha256(encoded).hexdigest(),
         "bundle_sha256": manifest["bundle_sha256"], "requirements": requirements,
+        "runtime_artifact": asset_reference,
         "output": str(output), "validation": "built; not published or executed",
     }
     output.with_suffix(".manifest.json").write_text(json.dumps({**receipt, "runtime": manifest}, indent=2) + "\n")

@@ -13,6 +13,7 @@ def main():
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--revision", default="HEAD")
     parser.add_argument("--lab-id")
+    parser.add_argument("--runtime-artifact", help="Explicit hosted asset: entity/project/collection:vN")
     parser.add_argument("--output", type=Path, default=Path(".forge/bundles"))
     args = parser.parse_args()
     root = args.root.resolve()
@@ -29,7 +30,8 @@ def main():
     for entry in selected:
         if entry.get("generator") != "marimo":
             parser.error(f"No implemented builder for {entry['id']}")
-        receipt = build_marimo(root, commit, entry, args.output / f"{entry['id']}.py", requirements)
+        receipt = build_marimo(root, commit, entry, args.output / f"{entry['id']}.py", requirements,
+                               asset_reference=args.runtime_artifact)
         print(json.dumps(receipt))
 
 

@@ -52,6 +52,11 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
                 shutil.copy2(source, target)
         env = dict(os.environ)
         env["PYTHONPATH"] = os.pathsep.join(str(p) for p in sys.path if p)
+        # uv --target installs console scripts beside the isolated dependencies.
+        # Canonical tools such as tito invoke jupytext as a subprocess.
+        script_dirs = [str(Path(p) / "bin") for p in sys.path if p and (Path(p) / "bin").is_dir()]
+        env["PATH"] = os.pathsep.join([*script_dirs, str(Path(sys.executable).parent),
+                                     env.get("PATH", "")])
         env["VENV_PATH"] = sys.prefix  # TinyTorch's documented runtime selector.
         env["MPLBACKEND"] = "Agg"
         # Never inherit tracking auto-init defaults into the underlying lesson.

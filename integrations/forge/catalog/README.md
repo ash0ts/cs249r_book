@@ -15,3 +15,9 @@ Student predictions and reflections remain local unless explicitly selected for
 a separate sharing workflow; the integration never treats a prediction as a
 measured result. Use `python -m mlsysbook_forge build --lab-id LAB_ID` to prepare
 a standalone copy, and follow [publication checks](../NOTEBOOKS.md).
+
+## Volume 2
+
+All 18 canonical Co-Labs are registered. Preserve distributed-system comparisons and analytical assumptions; publish saved snapshots only.
+The original saved evidence retains model assumptions and result provenance.
+No model or device execution is inferred from a supplied trace.

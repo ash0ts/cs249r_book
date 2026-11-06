@@ -9,6 +9,7 @@ import base64
 import hashlib
 import io
 import json
+import lzma
 import re
 import subprocess
 import tarfile
@@ -19,7 +20,9 @@ RUNTIME_ROOTS = (
     "mlsysim/mlsysim", "labs/mlsysbook_labs",
     "integrations/forge/src/mlsysbook_forge",
 )
-MAX_SOURCE_BYTES = 10 * 1024 * 1024
+# Leave headroom below the sandbox transport's message limit, even though the
+# notebook artifact store itself accepts larger source files.
+MAX_SOURCE_BYTES = 3500 * 1024
 
 
 def git(root: Path, *args: str) -> bytes:
@@ -50,13 +53,15 @@ def runtime_bundle(root: Path, commit: str, extra_paths=()) -> tuple[bytes, dict
             elif not member.isdir():
                 raise ValueError(f"Refusing non-regular bundle member: {member.name}")
     output = io.BytesIO()
-    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_STORED) as z:
         for name, data in sorted(files.items()):
             info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
-            info.compress_type = zipfile.ZIP_DEFLATED
+            info.compress_type = zipfile.ZIP_STORED
             info.external_attr = 0o100644 << 16
             z.writestr(info, data)
-    payload = output.getvalue()
+    # Compress across files, so shared source/docstring vocabulary is not reset
+    # per ZIP member. This keeps standalone source below runtime transport caps.
+    payload = lzma.compress(output.getvalue())
     manifest = {
         "source_commit": commit, "bundle_sha256": hashlib.sha256(payload).hexdigest(),
         "files": {name: hashlib.sha256(data).hexdigest() for name, data in sorted(files.items())},
@@ -71,6 +76,7 @@ def bootstrap_source(payload: bytes, manifest: dict) -> str:
     import base64 as _b64
     import hashlib as _hashlib
     import io as _io
+    import lzma as _lzma
     import tempfile as _tempfile
     import zipfile as _zipfile
     import os as _os
@@ -83,7 +89,7 @@ def bootstrap_source(payload: bytes, manifest: dict) -> str:
     _cache.mkdir(parents=True, exist_ok=True)
     if not (_runtime / ".complete").exists():
         with _tempfile.TemporaryDirectory(dir=_cache) as _temp:
-            with _zipfile.ZipFile(_io.BytesIO(_bundle)) as _archive:
+            with _zipfile.ZipFile(_io.BytesIO(_lzma.decompress(_bundle))) as _archive:
                 for _member in _archive.infolist():
                     _relative = Path(_member.filename)
                     if _relative.is_absolute() or ".." in _relative.parts:
@@ -155,7 +161,7 @@ def build_marimo(root: Path, commit: str, entry: dict, output: Path, requirement
     ast.parse(source)
     encoded = source.encode()
     if len(encoded) > MAX_SOURCE_BYTES:
-        raise ValueError("Notebook exceeds Forge's 10 MiB source limit")
+        raise ValueError("Notebook exceeds the conservative 3500 KiB runtime transport budget")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(encoded)
     receipt = {

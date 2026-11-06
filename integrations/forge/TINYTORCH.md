@@ -27,3 +27,5 @@ local result; interrupted actions require inspection before retrying.
 Build with the common notebook command and follow [publication checks](NOTEBOOKS.md).
 The companion lock includes TinyTorch's canonical nbdev/jupytext export tools;
 all generated notebooks, exported packages and datasets remain outside Git.
+
+The CIFAR-10 companion defaults to the canonical `--test-only` architecture check: a synthetic forward pass with no training and no milestone completion claim. The full training path requires the real ~170 MB CIFAR-10 download and an interactive prompt or explicit `TINYTORCH_AUTO_DOWNLOAD=1`; use the canonical CLI for that separate experiment. The TinyDigits CNN companion retains its actual training metrics.

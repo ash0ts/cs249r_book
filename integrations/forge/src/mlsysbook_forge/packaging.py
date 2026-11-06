@@ -40,9 +40,9 @@ def read_source(root: Path, commit: str, path: str) -> bytes:
     return git(root, "show", f"{commit}:{path}")
 
 
-def runtime_bundle(root: Path, commit: str, extra_paths=()) -> tuple[bytes, dict]:
+def runtime_bundle(root: Path, commit: str, extra_paths=(), *, roots=RUNTIME_ROOTS) -> tuple[bytes, dict]:
     """Archive only explicit tracked sources, with fixed ZIP timestamps/modes."""
-    paths = (*RUNTIME_ROOTS, "LICENSE.md", "labs/LICENSE", "mlsysim/LICENSE.md",
+    paths = (*roots, "LICENSE.md", "labs/LICENSE", "mlsysim/LICENSE.md",
              "integrations/forge/notebook-requirements.lock", *extra_paths)
     archive = git(root, "archive", "--format=tar", commit, *dict.fromkeys(paths))
     files = {}
@@ -115,7 +115,7 @@ def bootstrap_source(payload: bytes, manifest: dict, asset_reference: str | None
         if _path not in sys.path:
             sys.path.insert(0, _path)
     from mlsysbook_forge.bootstrap import ensure_dependencies as _ensure_dependencies
-    _ensure_dependencies(_runtime / "integrations/forge/notebook-requirements.lock")
+    _ensure_dependencies(_runtime / {manifest.get('dependency_lock', 'integrations/forge/notebook-requirements.lock')!r})
 '''
 
 

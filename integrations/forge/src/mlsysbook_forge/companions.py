@@ -51,8 +51,13 @@ def build_companion(root: Path, commit: str, entry: dict, output: Path, requirem
     source += '# ]\n'
     lock = read_source(root, commit, entry["dependency_lock"]).decode()
     indexes = re.findall(r'^--extra-index-url\s+(\S+)', lock, re.M)
-    if indexes:
-        source += '# [tool.uv]\n# extra-index-url = ' + json.dumps(indexes) + '\n'
+    wheel_links = re.findall(r'^--find-links\s+(\S+)', lock, re.M)
+    if indexes or wheel_links:
+        source += '# [tool.uv]\n'
+        if indexes:
+            source += '# extra-index-url = ' + json.dumps(indexes) + '\n'
+        if wheel_links:
+            source += '# find-links = ' + json.dumps(wheel_links) + '\n'
     source += '# ///\n'
     source += f'''import marimo
 

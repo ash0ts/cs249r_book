@@ -42,11 +42,13 @@ result = 19 * 7
 
 def test_receipt_requires_persisted_source_and_reopen(tmp_path):
     source = b"print(1)"
-    build = {"content_sha256": hashlib.sha256(source).hexdigest()}
+    build = {"content_sha256": hashlib.sha256(source).hexdigest(),
+             "validation": "built; not published or executed"}
     kwargs = {"build": build, "notebook_id": "n", "notebook_url": "https://example.test/n", "saved_source": source,
                   "committed_version": "v1", "rendered": True, "reopened": True, "execution": "passed"}
     receipt = save_receipt(tmp_path / "receipt.json", **kwargs)
     assert json.loads((tmp_path / "receipt.json").read_text()) == receipt
+    assert receipt['validation'] == 'publication verified; execution passed'
     with pytest.raises(ValueError, match="committed"):
         save_receipt(tmp_path / "bad.json", **{**kwargs, "reopened": False})
     with pytest.raises(ValueError, match="does not match"):

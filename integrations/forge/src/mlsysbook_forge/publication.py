@@ -33,6 +33,7 @@ def save_receipt(path: Path, *, build: dict, notebook_id: str, notebook_url: str
     receipt = {**build, "notebook_id": notebook_id, "notebook_url": notebook_url,
                "committed_version": committed_version, "rendered": rendered,
                "reopened": reopened, "execution": execution,
+               "validation": f"publication verified; execution {execution}",
                "verified_at": datetime.now(timezone.utc).isoformat()}
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(receipt, indent=2) + "\n")

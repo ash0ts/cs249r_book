@@ -1221,7 +1221,7 @@
       "source_path": "tinytorch/milestones/04_1998_cnn/02_lecun_cifar10.py",
       "group": "tinytorch-milestones",
       "milestone_family": "04_1998_cnn",
-      "result_kind": "measured_experiment",
+      "result_kind": "functional_smoke",
       "commands": [
         [
           "-m",
@@ -1231,10 +1231,11 @@
           "--all"
         ],
         [
-          "milestones/04_1998_cnn/02_lecun_cifar10.py"
+          "milestones/04_1998_cnn/02_lecun_cifar10.py",
+          "--test-only"
         ]
       ],
-      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "reason": "Run the canonical download-free CIFAR-10 architecture check. This performs a synthetic forward pass, does not train, and does not complete the milestone. Full training requires the real CIFAR-10 dataset and the canonical local workflow.",
       "capture_printed_epochs": true
     },
     {

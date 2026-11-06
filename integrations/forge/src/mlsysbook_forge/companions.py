@@ -1,0 +1,99 @@
+"""Marimo companions for canonical CLI workflows; originals remain unchanged."""
+from __future__ import annotations
+
+import ast
+import hashlib
+import json
+from pathlib import Path
+
+from .packaging import MAX_SOURCE_BYTES, bootstrap_source, read_source, runtime_bundle
+
+
+def build_companion(root: Path, commit: str, entry: dict, output: Path, requirements: list[str],
+                    *, asset_reference: str | None = None) -> dict:
+    extras = (*entry["workspace_roots"], entry["dependency_lock"])
+    payload, manifest = runtime_bundle(root, commit, extras,
+                                      roots=("integrations/forge/src/mlsysbook_forge",))
+    manifest["dependency_lock"] = entry["dependency_lock"]
+    bootstrap = bootstrap_source(payload, manifest, asset_reference)
+    introduction = (f"# {entry['title']}\n\n{entry['reason']}\n\n"
+                    f"Canonical source: `{entry['source_path']}` at `{commit}`.\n\n"
+                    "Run the companion explicitly. It works in a separate copy and does not change "
+                    "the graded notebook or canonical source. Its elapsed times include process overhead "
+                    "and are not benchmark scores. Logs stay local; publishing evidence is a separate action.")
+    source = '# /// script\n# requires-python = ">=3.13,<3.15"\n# dependencies = [\n'
+    source += ''.join(f'#   {json.dumps(dep)},\n' for dep in requirements)
+    source += '# ]\n# ///\n'
+    source += f'''import marimo
+
+__generated_with = "0.25.1"
+app = marimo.App(width="medium", app_title={entry['title']!r})
+
+
+@app.cell(hide_code=True)
+def _():
+    import sys
+    from pathlib import Path
+    import marimo as mo
+{bootstrap}
+    forge_runtime = _runtime
+    return mo, forge_runtime
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md({introduction!r})
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo, forge_runtime):
+    from mlsysbook_forge.execution import execute_commands
+    def _execute(_):
+        return execute_commands(forge_runtime, {entry!r}, source_commit={commit!r})
+    forge_execute = mo.ui.button(value=None, label="Run canonical companion", on_click=_execute)
+    forge_execute
+    return (forge_execute,)
+
+
+@app.cell(hide_code=True)
+def _(mo, forge_execute):
+    mo.json(forge_execute.value or {{"status": "not run"}})
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo, forge_execute):
+    from mlsysbook_forge.notebook import capture_panel
+    _panel, forge_publish = capture_panel(mo, lambda: forge_execute.value,
+        lab_id={entry['id']!r}, source_commit={commit!r}, result_kind={entry['result_kind']!r})
+    _panel
+    return (forge_publish,)
+
+
+@app.cell(hide_code=True)
+def _(mo, forge_publish):
+    mo.md(forge_publish.value)
+    return
+
+
+if __name__ == "__main__":
+    app.run()
+'''
+    ast.parse(source)
+    encoded = source.encode()
+    if len(encoded) > MAX_SOURCE_BYTES:
+        raise ValueError("Use an immutable private runtime artifact for this larger companion bundle")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_bytes(encoded)
+    runtime_path = output.parent / "runtime" / f"{manifest['bundle_sha256']}.xz"
+    runtime_path.parent.mkdir(parents=True, exist_ok=True)
+    runtime_path.write_bytes(payload)
+    source_bytes = read_source(root, commit, entry["source_path"])
+    receipt = {"lab_id": entry["id"], "source_path": entry["source_path"], "source_commit": commit,
+               "canonical_sha256": hashlib.sha256(source_bytes).hexdigest(),
+               "content_sha256": hashlib.sha256(encoded).hexdigest(), "bundle_sha256": manifest["bundle_sha256"],
+               "runtime_artifact": asset_reference, "requirements": requirements, "output": str(output),
+               "validation": "built; not published or executed"}
+    output.with_suffix(".manifest.json").write_text(json.dumps({**receipt, "runtime": manifest}, indent=2) + "\n")
+    return receipt

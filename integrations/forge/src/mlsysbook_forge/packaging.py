@@ -39,7 +39,8 @@ def read_source(root: Path, commit: str, path: str) -> bytes:
 
 def runtime_bundle(root: Path, commit: str, extra_paths=()) -> tuple[bytes, dict]:
     """Archive only explicit tracked sources, with fixed ZIP timestamps/modes."""
-    paths = (*RUNTIME_ROOTS, "LICENSE.md", "labs/LICENSE", "mlsysim/LICENSE.md", *extra_paths)
+    paths = (*RUNTIME_ROOTS, "LICENSE.md", "labs/LICENSE", "mlsysim/LICENSE.md",
+             "integrations/forge/notebook-requirements.lock", *extra_paths)
     archive = git(root, "archive", "--format=tar", commit, *dict.fromkeys(paths))
     files = {}
     with tarfile.open(fileobj=io.BytesIO(archive)) as tar:
@@ -95,6 +96,8 @@ def bootstrap_source(payload: bytes, manifest: dict) -> str:
         _path = str(_runtime / _package_root)
         if _path not in sys.path:
             sys.path.insert(0, _path)
+    from mlsysbook_forge.bootstrap import ensure_dependencies as _ensure_dependencies
+    _ensure_dependencies(_runtime / "integrations/forge/notebook-requirements.lock")
 '''
 
 
@@ -108,7 +111,8 @@ def portable_marimo(source: str, bootstrap: str) -> str:
     node = matches[0]
     lines = source.splitlines(keepends=True)
     # Hosted copies use native Python only. Canonical browser notebooks are untouched.
-    return "".join(lines[:node.lineno - 1]) + bootstrap + "".join(lines[node.end_lineno:])
+    result = "".join(lines[:node.lineno - 1]) + bootstrap + "".join(lines[node.end_lineno:])
+    return result.replace("@app.cell\nasync def", "@app.cell(hide_code=True)\nasync def", 1)
 
 
 def tracking_cells(entry: dict, commit: str) -> str:
@@ -144,7 +148,7 @@ def build_marimo(root: Path, commit: str, entry: dict, output: Path, requirement
         raise ValueError("Unrecognized Marimo entry point")
     cells = tracking_cells(entry, commit)
     source = source.replace(marker, cells + marker)
-    metadata = '# /// script\n# requires-python = ">=3.13,<3.14"\n# dependencies = [\n'
+    metadata = '# /// script\n# requires-python = ">=3.13,<3.15"\n# dependencies = [\n'
     metadata += ''.join(f'#   {json.dumps(dep)},\n' for dep in requirements)
     metadata += '# ]\n# ///\n'
     source = metadata + f"# Canonical source: {entry['source_path']} @ {commit}\n" + source
@@ -165,10 +169,17 @@ def build_marimo(root: Path, commit: str, entry: dict, output: Path, requirement
     return receipt
 
 
-def registered_entries(root: Path) -> list[dict]:
+def registered_entries(root: Path, commit: str | None = None) -> list[dict]:
     entries = []
-    for path in sorted((root / "integrations/forge/catalog").glob("*.json")):
-        entries.extend(json.loads(path.read_text())["entries"])
+    if commit:
+        paths = git(root, "ls-tree", "-r", "--name-only", commit,
+                    "integrations/forge/catalog").decode().splitlines()
+        for path in sorted(paths):
+            if path.endswith(".json"):
+                entries.extend(json.loads(read_source(root, commit, path))["entries"])
+    else:
+        for path in sorted((root / "integrations/forge/catalog").glob("*.json")):
+            entries.extend(json.loads(path.read_text())["entries"])
     ids = [entry["id"] for entry in entries]
     paths = [entry["source_path"] for entry in entries]
     if len(ids) != len(set(ids)) or len(paths) != len(set(paths)):

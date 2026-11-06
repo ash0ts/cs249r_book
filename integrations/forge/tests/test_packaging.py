@@ -76,3 +76,23 @@ def test_hosted_asset_must_be_immutable_and_verified():
     assert "owner/project/runtime:v0" in source
     assert "checksum mismatch" in source
     assert "WANDB_API_KEY" not in source
+
+
+def test_dependency_metadata_normalizes_dots_underscores_and_dashes(tmp_path, monkeypatch):
+    import hashlib
+    import platform
+    import sys
+    from types import SimpleNamespace
+    from mlsysbook_forge import bootstrap
+    lock = tmp_path / 'requirements.lock'
+    lock.write_text('pdfminer-six==20260107\n')
+    cache = tmp_path / 'cache'
+    key = hashlib.sha256(lock.read_bytes() + sys.version.encode() + platform.machine().encode()).hexdigest()
+    target = cache / key
+    target.mkdir(parents=True)
+    (target / '.complete').write_text(key)
+    monkeypatch.setattr(bootstrap, '_installed', lambda name: None)
+    monkeypatch.setattr(bootstrap.metadata, 'distributions', lambda **kwargs: [SimpleNamespace(metadata={'Name': 'pdfminer.six'}, version='20260107')])
+    monkeypatch.delitem(sys.modules, 'marimo', raising=False)
+    monkeypatch.setattr(sys, 'path', list(sys.path))
+    assert bootstrap.ensure_dependencies(lock, cache=cache) == {'pdfminer-six': '20260107'}

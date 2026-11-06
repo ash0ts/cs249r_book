@@ -51,9 +51,9 @@ def ensure_dependencies(lock: Path, *, cache: Path | None = None) -> dict[str, s
                 Path(staging).rename(target)
     sys.path.insert(0, str(target))
     importlib.invalidate_caches()
-    found = {dist.metadata["Name"].lower().replace("_", "-"): dist.version
+    found = {_normalized_name(dist.metadata["Name"]): dist.version
              for dist in metadata.distributions(path=[str(target)])}
-    if any(found.get(name.lower().replace("_", "-")) != version for name, version in expected.items()):
+    if any(found.get(_normalized_name(name)) != version for name, version in expected.items()):
         raise RuntimeError("Incomplete pinned environment; rebuild the dependency cache.")
     return expected
 
@@ -63,3 +63,7 @@ def _installed(name: str) -> str | None:
         return metadata.version(name)
     except metadata.PackageNotFoundError:
         return None
+
+
+def _normalized_name(name: str) -> str:
+    return re.sub(r"[-_.]+", "-", name).lower()

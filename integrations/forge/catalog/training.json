@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "training-sft",
+      "source_path": "integrations/forge/examples/prepare_sft.py",
+      "group": "hosted-training",
+      "generator": "training-sft",
+      "disposition": "companion notebook",
+      "title": "SFT preparation and checkpoint lineage",
+      "reason": "Prepare the frozen synthetic task and inspect lineage. Training submission is blocked without a verifiable service-enforced cost limit; no successful live training is claimed.",
+      "workspace_roots": [
+        "integrations/forge/examples/prepare_sft.py",
+        "integrations/forge/TRAINING.md",
+        "integrations/forge/RESEARCH_CONTRACT.md"
+      ],
+      "dependency_lock": "integrations/forge/hosted-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "training-rlvr",
+      "source_path": "integrations/forge/examples/prepare_rlvr.py",
+      "group": "hosted-training",
+      "generator": "training-rlvr",
+      "disposition": "companion notebook",
+      "title": "RLVR preparation and checkpoint lineage",
+      "reason": "Prepare the frozen synthetic task and inspect lineage. Training submission is blocked without a verifiable service-enforced cost limit; no successful live training is claimed.",
+      "workspace_roots": [
+        "integrations/forge/examples/prepare_rlvr.py",
+        "integrations/forge/TRAINING.md",
+        "integrations/forge/RESEARCH_CONTRACT.md"
+      ],
+      "dependency_lock": "integrations/forge/hosted-requirements.lock",
+      "result_kind": "supplied_case"
+    }
+  ]
+}

@@ -30,7 +30,7 @@ def main():
     requirements = [line.strip() for line in read_source(root, commit, "integrations/forge/notebook-requirements.in").decode().splitlines()
                     if line.strip() and not line.startswith("#")]
     for entry in selected:
-        builder = {"marimo": build_marimo, "companion": build_companion}.get(entry.get("generator"))
+        builder = {"marimo": build_marimo, "companion": build_companion, "hardware": build_companion}.get(entry.get("generator"))
         if builder is None:
             parser.error(f"No implemented builder for {entry['id']}")
         selected_requirements = requirements

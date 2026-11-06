@@ -28,5 +28,5 @@ def test_observer_preserves_actual_solver_result_and_units(tmp_path):
 
 def test_swallowed_external_failure_is_not_success(tmp_path):
     path = tmp_path / 'example.py'
-    path.write_text('try:\n    raise ConnectionError()\nexcept Exception:\n    pass\n')
+    path.write_text('import mlsysim\ntry:\n    raise ConnectionError()\nexcept Exception:\n    pass\n')
     assert execute_analytical(path)['status'] == 'no_solver_results'

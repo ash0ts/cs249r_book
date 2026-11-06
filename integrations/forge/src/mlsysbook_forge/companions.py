@@ -6,6 +6,7 @@ import hashlib
 from importlib import metadata
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -47,7 +48,12 @@ def build_companion(root: Path, commit: str, entry: dict, output: Path, requirem
                     "and are not benchmark scores. Logs stay local; publishing evidence is a separate action.")
     source = '# /// script\n# requires-python = ">=3.13,<3.15"\n# dependencies = [\n'
     source += ''.join(f'#   {json.dumps(dep)},\n' for dep in requirements)
-    source += '# ]\n# ///\n'
+    source += '# ]\n'
+    lock = read_source(root, commit, entry["dependency_lock"]).decode()
+    indexes = re.findall(r'^--extra-index-url\s+(\S+)', lock, re.M)
+    if indexes:
+        source += '# [tool.uv]\n# extra-index-url = ' + json.dumps(indexes) + '\n'
+    source += '# ///\n'
     source += f'''import marimo
 
 __generated_with = "0.25.1"

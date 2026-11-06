@@ -94,3 +94,30 @@ if __name__ == "__main__":
     assert normalize_marimo(source) == first
     assert b'19 * 7' in first
     assert not marker.exists()
+
+
+def test_profile_table_retains_units_and_excludes_unrecognized_text():
+    from mlsysbook_forge.training_evidence import printed_profile_evidence
+    log = ('Student reflection stays local\n'
+           '║ Parameters ║ 12,345 ║ private identity in notes ║\n'
+           '║ Latency ║ 0.025 ms ║ Per-sample inference ║\n'
+           '║ Serial rate ║ 40000 samples/sec ║ Reciprocal latency ║\n'
+           '║ Latency ║ 25 us ║ unsupported unit ║\n').encode()
+    evidence = printed_profile_evidence(log)
+    assert evidence['measurements'] == [
+        {'line_number': 2, 'metric': 'Parameters', 'value': 12345, 'unit': 'parameter'},
+        {'line_number': 3, 'metric': 'Latency', 'value': .025, 'unit': 'ms'},
+        {'line_number': 4, 'metric': 'Serial rate', 'value': 40000, 'unit': 'sample/s'}]
+    assert 'private identity' not in json.dumps(evidence)
+    assert evidence['precision'] == 'printed, not full precision'
+
+
+def test_profile_evidence_is_collected_after_command_completion(tmp_path):
+    runtime = tmp_path / 'runtime'
+    (runtime / 'lesson').mkdir(parents=True)
+    entry = {'source_path': 'lesson', 'workspace_roots': ['lesson'],
+             'working_directory': 'lesson', 'commands': [['-c', "print('║ Latency ║ 1.25 ms ║ test only ║')"]],
+             'result_kind': 'functional_smoke', 'timeout_seconds': 10, 'capture_printed_profile': True}
+    report = execute_commands(runtime, entry, source_commit='e' * 40, directory=tmp_path / 'runs')
+    assert report['status'] == 'passed'
+    assert report['commands'][0]['profiling']['measurements'][0]['value'] == 1.25

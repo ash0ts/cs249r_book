@@ -60,3 +60,13 @@ def test_child_commands_find_tools_in_isolated_dependency_target(tmp_path, monke
              'result_kind': 'functional_smoke', 'timeout_seconds': 10}
     report = execute_commands(runtime, entry, source_commit='c' * 40, directory=tmp_path / 'runs')
     assert report['status'] == 'passed'
+
+
+def test_notebook_cache_is_inside_isolated_workspace(tmp_path):
+    runtime = tmp_path / 'runtime'
+    (runtime / 'lesson').mkdir(parents=True)
+    entry = {'source_path': 'lesson', 'workspace_roots': ['lesson'],
+             'working_directory': 'lesson', 'commands': [['-c',
+                 "import os; from pathlib import Path; p=Path(os.environ['JUPYTER_DATA_DIR']); assert p.parent==Path.cwd().parent; p.mkdir(); (p/'marker').write_text('isolated')"]],
+             'result_kind': 'functional_smoke', 'timeout_seconds': 10}
+    assert execute_commands(runtime, entry, source_commit='d' * 40, directory=tmp_path / 'runs')['status'] == 'passed'

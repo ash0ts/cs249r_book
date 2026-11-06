@@ -15,8 +15,14 @@ The 13 executable milestone companions cover all seven milestone families.
 They use canonical scripts and include tracked dataset samples, datasheets and
 licenses. Original RNG behavior is preserved; an unspecified seed is recorded
 as null, never invented. Dataset downloads and longer milestones may need local
-execution. Commands have a 180-second limit and kill their process group on
-timeout; a timeout is a failed validation, not a score.
+execution. Most commands have a 180-second limit; the TinyDigits MLP and three language-model
+companions allow 600 seconds. All kill their process group on timeout; a timeout
+is a failed validation, not a score. Companion stdin is closed and TinyTorch
+terminal prompts are disabled. The three language-model companions use the
+canonical `--quick` offline dataset mode, preserve its quality gates, and record
+that scope explicitly. These four companions use one BLAS/OpenMP thread to avoid
+oversubscription in small hosted CPU runtimes; the control is recorded with results.
+No full-dataset language-model training claim follows from sample-mode results.
 
 Each run records source revision, command/configuration, return code, units and
 elapsed time. Raw training and profiling output remains in local command logs. The

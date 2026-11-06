@@ -38,6 +38,7 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
     report = {"action_id": identity, "source_commit": source_commit,
               "source_path": entry["source_path"], "result_kind": entry["result_kind"],
               "seed": entry.get("seed"), "config": entry.get("config", {}),
+              "execution_controls": {"stdin": "closed", "cpu_threads": entry.get("cpu_threads")},
               "units": {"elapsed_seconds": "s"}, "commands": [], "status": "running"}
     try:
         workspace = directory / "workspace"
@@ -59,6 +60,14 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
                                      env.get("PATH", "")])
         env["VENV_PATH"] = sys.prefix  # TinyTorch's documented runtime selector.
         env["MPLBACKEND"] = "Agg"
+        if entry.get("group", "").startswith("tinytorch"):
+            env["TINYTORCH_NON_INTERACTIVE"] = "1"
+        threads = entry.get("cpu_threads")
+        if threads is not None:
+            if type(threads) is not int or not 1 <= threads <= 64:
+                raise ValueError("CPU thread count must be an integer from 1 to 64")
+            for variable in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+                env[variable] = str(threads)
         # Notebook signing/configuration must not write into the learner's home.
         env["JUPYTER_DATA_DIR"] = str(workspace / ".jupyter-data")
         env["JUPYTER_CONFIG_DIR"] = str(workspace / ".jupyter-config")
@@ -73,7 +82,8 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
             started = time.monotonic()
             with (directory / f"command-{index}.log").open("wb") as log:
                 process = subprocess.Popen(command, cwd=cwd, env=env, stdout=log,
-                                           stderr=subprocess.STDOUT, start_new_session=True)
+                                           stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                                           start_new_session=True)
                 try:
                     code = process.wait(timeout=timeout)
                 except subprocess.TimeoutExpired:

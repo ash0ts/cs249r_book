@@ -35,6 +35,36 @@ def normalize_marimo(path: Path) -> bytes:
 
 
 def execution_cells(entry: dict, commit: str) -> str:
+    if entry.get('generator') == 'hosted':
+        template = {"endpoint": "https://api.inference.wandb.ai/v1", "project": "", "model": "",
+                    "max_tokens": 256, "temperature": 0, "input_usd_per_million": None,
+                    "output_usd_per_million": None, "pricing_source": "https://coreweave.com/forge-pricing/inference-agents",
+                    "pricing_checked": "", "source_commit": commit}
+        return f'''
+@app.cell(hide_code=True)
+def _(mo):
+    import json
+    forge_config = mo.ui.text_area(value={json.dumps(template, indent=2)!r}, label="Explicit endpoint, model, private project and verified rates", rows=16)
+    forge_attempt = mo.ui.text(value="smoke-1", label="Attempt identifier (reuse prevents duplicate calls)")
+    forge_budget = mo.ui.text(value=".forge/campaign-budget.sqlite", label="Shared campaign budget database")
+    mo.vstack([mo.md("The campaign ledger must include notebook compute, retries, storage and training allowances. Never reset it to obtain more budget. This button makes six paid model calls after checking the private project and model catalog."), forge_config, forge_attempt, forge_budget])
+    return forge_config, forge_attempt, forge_budget
+
+
+@app.cell(hide_code=True)
+def _(mo, forge_config, forge_attempt, forge_budget):
+    from mlsysbook_forge.hosted import run_evaluation
+    def _execute(_):
+        import json
+        from pathlib import Path
+        try:
+            return run_evaluation(json.loads(forge_config.value), budget_path=Path(forge_budget.value), output_dir=Path(".forge/hosted"), attempt=forge_attempt.value)
+        except Exception as _error:
+            return {{"status": "failed", "error_type": type(_error).__name__, "message": "Preflight or service failure. Local evidence and reservations are retained; inspect before a new attempt."}}
+    forge_execute = mo.ui.button(value=None, label="Run bounded hosted evaluation", on_click=_execute)
+    forge_execute
+    return (forge_execute,)
+'''
     if entry.get('generator') == 'hardware':
         return f'''
 @app.cell(hide_code=True)

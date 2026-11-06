@@ -34,6 +34,8 @@ def inventory(root: Path, commit: str) -> list[dict]:
                 disposition, reason = "excluded", "Navigation or platform overview; analysis companions are attached to the individual executable lessons."
             elif 'setup' in path or 'getting-started' in path:
                 reason = "Physical device, local drivers, IDE, firmware or no-code device setup; hosted compute cannot perform this setup."
+        elif path in registered:
+            group, disposition, reason = registered[path]["group"], registered[path]["disposition"], registered[path]["reason"]
         else:
             continue
         row = {"id": path.removesuffix(Path(path).suffix).replace("/", "-"), "source_path": path,

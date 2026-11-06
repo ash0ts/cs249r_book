@@ -1,0 +1,901 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "mlsysim-tutorials-00_hello_roofline",
+      "title": "Hello, Roofline",
+      "source_path": "mlsysim/docs/tutorials/00_hello_roofline.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/00_hello_roofline.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-01_memory_wall",
+      "title": "The Memory Wall",
+      "source_path": "mlsysim/docs/tutorials/01_memory_wall.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/01_memory_wall.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-01_pipeline_callbacks",
+      "title": "Composable Pipelines & Callbacks",
+      "source_path": "mlsysim/docs/tutorials/01_pipeline_callbacks.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/01_pipeline_callbacks.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-02_differential_explainer",
+      "title": "The Differential Explainer",
+      "source_path": "mlsysim/docs/tutorials/02_differential_explainer.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/02_differential_explainer.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-02_two_phases",
+      "title": "Two Phases, One Request",
+      "source_path": "mlsysim/docs/tutorials/02_two_phases.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/02_two_phases.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-03_kv_cache",
+      "title": "KV-Cache: The Hidden Tax",
+      "source_path": "mlsysim/docs/tutorials/03_kv_cache.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/03_kv_cache.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-04_starving_the_gpu",
+      "title": "Starving the GPU",
+      "source_path": "mlsysim/docs/tutorials/04_starving_the_gpu.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/04_starving_the_gpu.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-05_quantization",
+      "title": "Quantization: Not a Free Lunch",
+      "source_path": "mlsysim/docs/tutorials/05_quantization.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/05_quantization.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-06_scaling_1000_gpus",
+      "title": "Scaling to 1000 GPUs",
+      "source_path": "mlsysim/docs/tutorials/06_scaling_1000_gpus.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/06_scaling_1000_gpus.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-07_geography",
+      "title": "Geography is a Systems Variable",
+      "source_path": "mlsysim/docs/tutorials/07_geography.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/07_geography.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-08_nine_million_dollar",
+      "title": "The $9M Question",
+      "source_path": "mlsysim/docs/tutorials/08_nine_million_dollar.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/08_nine_million_dollar.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-09_sensitivity",
+      "title": "Where to Invest: Sensitivity Analysis",
+      "source_path": "mlsysim/docs/tutorials/09_sensitivity.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/09_sensitivity.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-10_gpu_vs_wafer",
+      "title": "GPU vs. Wafer-Scale",
+      "source_path": "mlsysim/docs/tutorials/10_gpu_vs_wafer.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/10_gpu_vs_wafer.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-11_training_memory_capacity_moe",
+      "title": "Training Memory, Serving Capacity, and MoE",
+      "source_path": "mlsysim/docs/tutorials/11_training_memory_capacity_moe.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/11_training_memory_capacity_moe.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-12_design_space_exploration",
+      "title": "Design Space Exploration (DSE)",
+      "source_path": "mlsysim/docs/tutorials/12_design_space_exploration.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/12_design_space_exploration.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-12_full_stack_audit",
+      "title": "Full-Stack Audit: LLaMA-70B Training",
+      "source_path": "mlsysim/docs/tutorials/12_full_stack_audit.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/12_full_stack_audit.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-tutorials-distributed",
+      "title": "Distributed Training: 3D Parallelism and Scaling Efficiency",
+      "source_path": "mlsysim/docs/tutorials/distributed.qmd",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/docs/tutorials/distributed.qmd",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-01_basic_roofline",
+      "title": "MLSys\u00b7im \u00b7 01 basic roofline",
+      "source_path": "mlsysim/examples/01_basic_roofline.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/01_basic_roofline.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-02_carbon_geography",
+      "title": "MLSys\u00b7im \u00b7 02 carbon geography",
+      "source_path": "mlsysim/examples/02_carbon_geography.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/02_carbon_geography.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-03_heterogeneous_cluster",
+      "title": "MLSys\u00b7im \u00b7 03 heterogeneous cluster",
+      "source_path": "mlsysim/examples/03_heterogeneous_cluster.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/03_heterogeneous_cluster.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-04_data_wall",
+      "title": "MLSys\u00b7im \u00b7 04 data wall",
+      "source_path": "mlsysim/examples/04_data_wall.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/04_data_wall.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-05_huggingface_import",
+      "title": "MLSys\u00b7im \u00b7 05 huggingface import",
+      "source_path": "mlsysim/examples/05_huggingface_import.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/05_huggingface_import.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-06_multi_objective_pareto",
+      "title": "MLSys\u00b7im \u00b7 06 multi objective pareto",
+      "source_path": "mlsysim/examples/06_multi_objective_pareto.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/06_multi_objective_pareto.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-custom_design",
+      "title": "MLSys\u00b7im \u00b7 custom design",
+      "source_path": "mlsysim/examples/custom_design.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/custom_design.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-hardware_comparison",
+      "title": "MLSys\u00b7im \u00b7 hardware comparison",
+      "source_path": "mlsysim/examples/hardware_comparison.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/hardware_comparison.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-hello_world",
+      "title": "MLSys\u00b7im \u00b7 hello world",
+      "source_path": "mlsysim/examples/hello_world.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/hello_world.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-manual_sweep",
+      "title": "MLSys\u00b7im \u00b7 manual sweep",
+      "source_path": "mlsysim/examples/manual_sweep.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/manual_sweep.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    },
+    {
+      "id": "mlsysim-examples-sustainability_lab",
+      "title": "MLSys\u00b7im \u00b7 sustainability lab",
+      "source_path": "mlsysim/examples/sustainability_lab.py",
+      "group": "mlsysim",
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "reason": "Execute canonical analytical solvers and retain their actual input/result values with units. Observer overhead is not benchmark timing; no model or agent execution is implied.",
+      "workspace_roots": [
+        "mlsysim/mlsysim",
+        "mlsysim/docs/tutorials",
+        "mlsysim/examples",
+        "mlsysim/LICENSE.md"
+      ],
+      "working_directory": ".",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "result_kind": "analytical_simulation",
+      "commands": [
+        [
+          "-m",
+          "mlsysbook_forge.analytical",
+          "mlsysim/examples/sustainability_lab.py",
+          "--output",
+          "analytical.json"
+        ]
+      ],
+      "evidence_files": [
+        "analytical.json"
+      ]
+    }
+  ]
+}

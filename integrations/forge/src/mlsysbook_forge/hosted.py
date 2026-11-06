@@ -4,6 +4,8 @@ from __future__ import annotations
 import asyncio
 import json
 import math
+import platform
+from importlib.metadata import PackageNotFoundError, version
 import re
 from pathlib import Path
 
@@ -63,7 +65,7 @@ def run_evaluation(config: dict, *, budget_path: Path, output_dir: Path, attempt
         raise RuntimeError("Attempt is incomplete or uncertain. Inspect local evidence before a separately budgeted retry.")
     directory = output_dir / action_id
     directory.mkdir(parents=True, exist_ok=False)
-    (directory / "manifest.json").write_text(json.dumps(campaign, indent=2) + "\n")
+    (directory / "manifest.json").write_text(json.dumps({**campaign, "environment": environment()}, indent=2) + "\n")
     # All service imports and authentication are below the explicit action boundary.
     import wandb
     from openai import OpenAI
@@ -160,3 +162,13 @@ def run_evaluation(config: dict, *, budget_path: Path, output_dir: Path, attempt
 
 def messages(task):
     return [{"role": "system", "content": SYSTEM}, {"role": "user", "content": task["prompt"]}]
+
+
+def environment():
+    versions = {}
+    for name in ("openai", "weave", "wandb", "opentelemetry-sdk", "opentelemetry-exporter-otlp-proto-http"):
+        try:
+            versions[name] = version(name)
+        except PackageNotFoundError:
+            versions[name] = "not installed"
+    return {"python": platform.python_version(), "packages": versions}

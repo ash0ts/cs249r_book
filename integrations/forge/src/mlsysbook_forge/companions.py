@@ -34,6 +34,41 @@ def normalize_marimo(path: Path) -> bytes:
     return path.read_bytes()
 
 
+def execution_cells(entry: dict, commit: str) -> str:
+    if entry.get('generator') == 'hardware':
+        return f'''
+@app.cell(hide_code=True)
+def _(mo):
+    forge_input = mo.ui.file(filetypes=[".csv", ".json"], multiple=False)
+    forge_kind = mo.ui.dropdown({{"Dataset split manifest": "dataset", "Model parameter manifest": "model", "Device measurements": "measurements"}}, value="Dataset split manifest", label="Evidence to analyze")
+    mo.vstack([forge_kind, forge_input])
+    return forge_input, forge_kind
+
+
+@app.cell(hide_code=True)
+def _(mo, forge_input, forge_kind):
+    from mlsysbook_forge.hardware import analyze
+    def _execute(_):
+        try:
+            return analyze(forge_input.contents(), forge_kind.value, platform={entry['platform']!r})
+        except Exception as _error:
+            return {{"status": "failed", "error_type": type(_error).__name__, "message": str(_error)}}
+    forge_execute = mo.ui.button(value=None, label="Analyze imported evidence", on_click=_execute, disabled=not forge_input.value)
+    forge_execute
+    return (forge_execute,)
+'''
+    return f'''
+@app.cell(hide_code=True)
+def _(mo, forge_runtime):
+    from mlsysbook_forge.execution import execute_commands
+    def _execute(_):
+        return execute_commands(forge_runtime, {entry!r}, source_commit={commit!r})
+    forge_execute = mo.ui.button(value=None, label="Run canonical companion", on_click=_execute)
+    forge_execute
+    return (forge_execute,)
+'''
+
+
 def build_companion(root: Path, commit: str, entry: dict, output: Path, requirements: list[str],
                     *, asset_reference: str | None = None) -> dict:
     if entry.get("generator") == "mlperf-marimo":
@@ -84,14 +119,7 @@ def _(mo):
     return
 
 
-@app.cell(hide_code=True)
-def _(mo, forge_runtime):
-    from mlsysbook_forge.execution import execute_commands
-    def _execute(_):
-        return execute_commands(forge_runtime, {entry!r}, source_commit={commit!r})
-    forge_execute = mo.ui.button(value=None, label="Run canonical companion", on_click=_execute)
-    forge_execute
-    return (forge_execute,)
+{execution_cells(entry, commit)}
 
 
 @app.cell(hide_code=True)
@@ -104,7 +132,7 @@ def _(mo, forge_execute):
 def _(mo, forge_execute):
     from mlsysbook_forge.notebook import capture_panel
     _panel, forge_publish = capture_panel(mo, lambda: forge_execute.value,
-        lab_id={entry['id']!r}, source_commit={commit!r}, result_kind={entry['result_kind']!r})
+        lab_id={entry['id']!r}, source_commit={commit!r}, result_kind=(forge_execute.value or {{}}).get("result_kind", {entry['result_kind']!r}))
     _panel
     return (forge_publish,)
 

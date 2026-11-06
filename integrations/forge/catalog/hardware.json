@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "hardware-arduino-nicla_vision-image_classification",
+      "source_path": "kits/contents/arduino/nicla_vision/image_classification/image_classification.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "arduino \u00b7 nicla_vision",
+      "title": "arduino \u00b7 nicla_vision \u00b7 Image Classification",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/arduino/nicla_vision/image_classification/image_classification.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-arduino-nicla_vision-kws",
+      "source_path": "kits/contents/arduino/nicla_vision/kws/kws.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "arduino \u00b7 nicla_vision",
+      "title": "arduino \u00b7 nicla_vision \u00b7 Keyword Spotting (KWS)",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/arduino/nicla_vision/kws/kws.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-arduino-nicla_vision-motion_classification",
+      "source_path": "kits/contents/arduino/nicla_vision/motion_classification/motion_classification.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "arduino \u00b7 nicla_vision",
+      "title": "arduino \u00b7 nicla_vision \u00b7 Motion Classification and Anomaly Detection",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/arduino/nicla_vision/motion_classification/motion_classification.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-arduino-nicla_vision-object_detection",
+      "source_path": "kits/contents/arduino/nicla_vision/object_detection/object_detection.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "arduino \u00b7 nicla_vision",
+      "title": "arduino \u00b7 nicla_vision \u00b7 Object Detection",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/arduino/nicla_vision/object_detection/object_detection.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-raspi-image_classification",
+      "source_path": "kits/contents/raspi/image_classification/image_classification.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "raspi",
+      "title": "raspi \u00b7 Image Classification",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/raspi/image_classification/image_classification.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-raspi-llm",
+      "source_path": "kits/contents/raspi/llm/llm.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "raspi",
+      "title": "raspi \u00b7 Small Language Models (SLM)",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/raspi/llm/llm.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-raspi-object_detection",
+      "source_path": "kits/contents/raspi/object_detection/object_detection.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "raspi",
+      "title": "raspi \u00b7 Object Detection",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/raspi/object_detection/object_detection.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-raspi-vlm",
+      "source_path": "kits/contents/raspi/vlm/vlm.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "raspi",
+      "title": "raspi \u00b7 Vision-Language Models (VLM)",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/raspi/vlm/vlm.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-seeed-grove_vision_ai_v2-image_classification",
+      "source_path": "kits/contents/seeed/grove_vision_ai_v2/image_classification/image_classification.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "seeed \u00b7 grove_vision_ai_v2",
+      "title": "seeed \u00b7 grove_vision_ai_v2 \u00b7 Image Classification",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/seeed/grove_vision_ai_v2/image_classification/image_classification.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-seeed-grove_vision_ai_v2-object_detection",
+      "source_path": "kits/contents/seeed/grove_vision_ai_v2/object_detection/object_detection.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "seeed \u00b7 grove_vision_ai_v2",
+      "title": "seeed \u00b7 grove_vision_ai_v2 \u00b7 Object Detection",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/seeed/grove_vision_ai_v2/object_detection/object_detection.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-seeed-xiao_esp32s3-image_classification",
+      "source_path": "kits/contents/seeed/xiao_esp32s3/image_classification/image_classification.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "seeed \u00b7 xiao_esp32s3",
+      "title": "seeed \u00b7 xiao_esp32s3 \u00b7 Image Classification",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/seeed/xiao_esp32s3/image_classification/image_classification.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-seeed-xiao_esp32s3-kws",
+      "source_path": "kits/contents/seeed/xiao_esp32s3/kws/kws.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "seeed \u00b7 xiao_esp32s3",
+      "title": "seeed \u00b7 xiao_esp32s3 \u00b7 Keyword Spotting (KWS)",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/seeed/xiao_esp32s3/kws/kws.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-seeed-xiao_esp32s3-motion_classification",
+      "source_path": "kits/contents/seeed/xiao_esp32s3/motion_classification/motion_classification.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "seeed \u00b7 xiao_esp32s3",
+      "title": "seeed \u00b7 xiao_esp32s3 \u00b7 Motion Classification and Anomaly Detection",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/seeed/xiao_esp32s3/motion_classification/motion_classification.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-seeed-xiao_esp32s3-object_detection",
+      "source_path": "kits/contents/seeed/xiao_esp32s3/object_detection/object_detection.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "seeed \u00b7 xiao_esp32s3",
+      "title": "seeed \u00b7 xiao_esp32s3 \u00b7 Object Detection",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/seeed/xiao_esp32s3/object_detection/object_detection.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-shared-dsp_spectral_features_block",
+      "source_path": "kits/contents/shared/dsp_spectral_features_block/dsp_spectral_features_block.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "shared",
+      "title": "shared \u00b7 DSP Spectral Features",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/shared/dsp_spectral_features_block/dsp_spectral_features_block.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    },
+    {
+      "id": "hardware-shared-kws_feature_eng",
+      "source_path": "kits/contents/shared/kws_feature_eng/kws_feature_eng.qmd",
+      "group": "hardware",
+      "generator": "hardware",
+      "disposition": "companion notebook",
+      "platform": "shared",
+      "title": "shared \u00b7 KWS Feature Engineering",
+      "reason": "Prepare dataset split manifests, analyze model parameter manifests, and summarize imported device measurements for this canonical kit lesson. Device collection and deployment remain on the named physical hardware. No measurements are prefilled.",
+      "workspace_roots": [
+        "kits/contents/shared/kws_feature_eng/kws_feature_eng.qmd",
+        "kits/LICENSE"
+      ],
+      "dependency_lock": "integrations/forge/notebook-requirements.lock",
+      "result_kind": "supplied_case"
+    }
+  ]
+}

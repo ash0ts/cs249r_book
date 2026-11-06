@@ -68,3 +68,15 @@ upper bound before launch, and terminate each runtime after validation. Do not
 launch GPU or training jobs without a known bounded cost. Publication receipts
 must distinguish source persistence, execution, interactive checks, live tracking,
 and model-job validation; one does not establish the others.
+
+## Larger hosted bundles
+
+For Forge, upload the generated `runtime/DIGEST.xz` as `runtime.xz` in a private
+`mlsysbook-runtime` artifact, then rebuild with
+`--runtime-artifact YOUR_ENTITY/YOUR_PROJECT/YOUR_COLLECTION:v0` (use the actual
+committed version). The hosted bootstrap verifies its SHA-256 before extraction.
+This explicit build option uses the sandbox's authenticated SDK to retrieve a
+durable asset, and keeps notebook source small. Track the asset reference and
+digest in the publication receipt. Never use a mutable `latest` alias.
+The default embedded build remains available for local use without a service
+account. The generated source and private asset references remain outside Git.

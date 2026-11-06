@@ -43,3 +43,20 @@ def test_training_numbers_are_labeled_with_printed_precision():
     assert evidence['units']['test_accuracy'] == '%'
     assert evidence['precision'] == 'printed, not full precision'
     assert 'reflection' not in json.dumps(evidence)
+
+
+def test_child_commands_find_tools_in_isolated_dependency_target(tmp_path, monkeypatch):
+    dependency = tmp_path / 'dependencies'
+    (dependency / 'bin').mkdir(parents=True)
+    tool = dependency / 'bin' / 'forge-test-console-script'
+    tool.write_text('#!/bin/sh\nexit 0\n')
+    tool.chmod(0o755)
+    monkeypatch.syspath_prepend(str(dependency))
+    runtime = tmp_path / 'runtime'
+    (runtime / 'lesson').mkdir(parents=True)
+    entry = {'source_path': 'lesson', 'workspace_roots': ['lesson'],
+             'working_directory': 'lesson', 'commands': [['-c',
+                 "import subprocess; subprocess.run(['forge-test-console-script'], check=True)"]],
+             'result_kind': 'functional_smoke', 'timeout_seconds': 10}
+    report = execute_commands(runtime, entry, source_commit='c' * 40, directory=tmp_path / 'runs')
+    assert report['status'] == 'passed'

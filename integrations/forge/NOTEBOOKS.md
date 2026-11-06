@@ -19,7 +19,9 @@ successful build is not proof of hosted validation.
 
 Generated Marimo source embeds a deterministic compressed archive of the tracked
 runtime packages and license. On native startup it verifies the archive digest
-and extracts to a content-addressed directory. The notebook needs no checkout,
+and extracts to a content-addressed directory. Missing or different lesson
+dependencies are restored from the hash-pinned lock to an isolated directory
+using uv. The platform environment is not modified. The notebook needs no checkout,
 relative wheel server, or access to someone else's private artifacts. Only the
 native bootstrap is replaced; lesson calculations and controls are retained.
 Generated source must fit Forge's 10 MiB source limit.
@@ -27,9 +29,11 @@ Generated source must fit Forge's 10 MiB source limit.
 `notebook-requirements.in` pins the direct runtime dependencies;
 `notebook-requirements.lock` records the complete resolved set and wheel hashes.
 Create a clean Python 3.13 environment using the lock before validating a build.
-For hosted notebooks, PEP 723 metadata declares the pinned dependencies. The
-hosted platform's environment is recorded separately; it may supply its own
-Marimo version. Record differences rather than claiming an identical lock.
+PEP 723 metadata declares pinned dependencies. The bootstrap also restores the
+lock on hosts that do not consume this metadata. Marimo must match the tested
+version because it is already running when the first cell executes. Rebuild and
+validate the lock when the hosted runtime changes; do not silently replace a
+live server's Marimo package.
 Generated hosted copies include the pinned online SDK, but load it only when
 online mode is selected. Canonical browser labs require no SDK or credentials.
 

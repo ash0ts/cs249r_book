@@ -357,9 +357,9 @@ loro==1.17.1 \
     --hash=sha256:fd330d107f6269c82c8f29712227b55992f39e8d168edaffab3e88e690bbfcad \
     --hash=sha256:ffee9a1e7ad1c5d1d5e9817a7c11182da57b204967703ff068c607e989e6b9b8
     # via marimo
-marimo==0.24.0 \
-    --hash=sha256:30aaeae5a5936df524814fddd98f4b260d3068f97df2611d252fe4b253f3fb80 \
-    --hash=sha256:a5470207ac4c228ee7c2c16f820b0ca1cdf58ec4b51074aca1a5c997422ae90a
+marimo==0.25.1 \
+    --hash=sha256:934db2ceb6c2b8c9ae3514a7a22e6b22ecf54fabea0b6138aed1980f8f1536ff \
+    --hash=sha256:dec4a87bc5db16b85181ba4880e67bb55485912b7ef26748a0bbf052c59203fd
     # via -r integrations/forge/notebook-requirements.in
 markdown==3.11.3 \
     --hash=sha256:81eb91631dc97ad1efbc76019ef0f80fe90ca49ddf81546752d79989c3bfff3e \

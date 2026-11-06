@@ -74,3 +74,5 @@ python -m pytest integrations/forge/tests -q
 
 The package uses the repository's code license (Apache-2.0); teaching content
 retains its original attribution and content license.
+
+Optional actual model execution: [hosted tools and evaluation](HOSTED.md), with a [frozen research contract](RESEARCH_CONTRACT.md).

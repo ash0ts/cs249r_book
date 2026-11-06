@@ -15,9 +15,9 @@ def execution_cells(entry: dict, commit: str) -> str:
         return f'''
 @app.cell(hide_code=True)
 def _(mo):
-    from pathlib import Path
+    from pathlib import Path as _SftPath
     from mlsysbook_forge.training import prepare_sft
-    forge_execute = mo.ui.button(value=None, label="Prepare local SFT dataset", on_click=lambda _: prepare_sft(Path(".forge/training"), {commit!r}))
+    forge_execute = mo.ui.button(value=None, label="Prepare local SFT dataset", on_click=lambda _: prepare_sft(_SftPath(".forge/training"), {commit!r}))
     mo.vstack([mo.md("Prepare 24 frozen training demonstrations locally. Job submission remains blocked until a service-enforced cost limit can be verified. See TRAINING.md in the bundled source."), forge_execute])
     return (forge_execute,)
 '''

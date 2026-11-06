@@ -1,0 +1,1563 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-01",
+      "title": "TinyTorch 01 tensor",
+      "source_path": "tinytorch/src/01_tensor/01_tensor.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "01"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-02",
+      "title": "TinyTorch 02 activations",
+      "source_path": "tinytorch/src/02_activations/02_activations.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "02"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-03",
+      "title": "TinyTorch 03 layers",
+      "source_path": "tinytorch/src/03_layers/03_layers.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "03"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-04",
+      "title": "TinyTorch 04 losses",
+      "source_path": "tinytorch/src/04_losses/04_losses.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "04"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-05",
+      "title": "TinyTorch 05 dataloader",
+      "source_path": "tinytorch/src/05_dataloader/05_dataloader.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "05"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-06",
+      "title": "TinyTorch 06 autograd",
+      "source_path": "tinytorch/src/06_autograd/06_autograd.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "06"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-07",
+      "title": "TinyTorch 07 optimizers",
+      "source_path": "tinytorch/src/07_optimizers/07_optimizers.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "07"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-08",
+      "title": "TinyTorch 08 training",
+      "source_path": "tinytorch/src/08_training/08_training.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "08"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-09",
+      "title": "TinyTorch 09 convolutions",
+      "source_path": "tinytorch/src/09_convolutions/09_convolutions.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "09"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-10",
+      "title": "TinyTorch 10 tokenization",
+      "source_path": "tinytorch/src/10_tokenization/10_tokenization.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "10"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-11",
+      "title": "TinyTorch 11 embeddings",
+      "source_path": "tinytorch/src/11_embeddings/11_embeddings.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "11"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-12",
+      "title": "TinyTorch 12 attention",
+      "source_path": "tinytorch/src/12_attention/12_attention.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "12"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-13",
+      "title": "TinyTorch 13 transformers",
+      "source_path": "tinytorch/src/13_transformers/13_transformers.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "13"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-14",
+      "title": "TinyTorch 14 profiling",
+      "source_path": "tinytorch/src/14_profiling/14_profiling.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "14"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-15",
+      "title": "TinyTorch 15 quantization",
+      "source_path": "tinytorch/src/15_quantization/15_quantization.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "15"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-16",
+      "title": "TinyTorch 16 compression",
+      "source_path": "tinytorch/src/16_compression/16_compression.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "16"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-17",
+      "title": "TinyTorch 17 acceleration",
+      "source_path": "tinytorch/src/17_acceleration/17_acceleration.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "17"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-18",
+      "title": "TinyTorch 18 memoization",
+      "source_path": "tinytorch/src/18_memoization/18_memoization.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "18"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-19",
+      "title": "TinyTorch 19 benchmarking",
+      "source_path": "tinytorch/src/19_benchmarking/19_benchmarking.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "19"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-module-20",
+      "title": "TinyTorch 20 capstone",
+      "source_path": "tinytorch/src/20_capstone/20_capstone.py",
+      "group": "tinytorch-modules",
+      "result_kind": "functional_smoke",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "-m",
+          "tito",
+          "module",
+          "test",
+          "20"
+        ]
+      ],
+      "reason": "Execute the canonical export and module checks in a separate workspace. Record pass/fail and process timings without changing the 20 graded modules."
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-01_1958_perceptron-01_rosenblatt_forward",
+      "title": "TinyTorch 01 1958 perceptron \u00b7 01 rosenblatt forward",
+      "source_path": "tinytorch/milestones/01_1958_perceptron/01_rosenblatt_forward.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "01_1958_perceptron",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/01_1958_perceptron/01_rosenblatt_forward.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-02_1969_xor-01_xor_crisis",
+      "title": "TinyTorch 02 1969 xor \u00b7 01 xor crisis",
+      "source_path": "tinytorch/milestones/02_1969_xor/01_xor_crisis.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "02_1969_xor",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/02_1969_xor/01_xor_crisis.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-02_1969_xor-02_xor_solved",
+      "title": "TinyTorch 02 1969 xor \u00b7 02 xor solved",
+      "source_path": "tinytorch/milestones/02_1969_xor/02_xor_solved.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "02_1969_xor",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/02_1969_xor/02_xor_solved.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-03_1986_mlp-01_rumelhart_tinydigits",
+      "title": "TinyTorch 03 1986 mlp \u00b7 01 rumelhart tinydigits",
+      "source_path": "tinytorch/milestones/03_1986_mlp/01_rumelhart_tinydigits.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "03_1986_mlp",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/03_1986_mlp/01_rumelhart_tinydigits.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-04_1998_cnn-01_lecun_tinydigits",
+      "title": "TinyTorch 04 1998 cnn \u00b7 01 lecun tinydigits",
+      "source_path": "tinytorch/milestones/04_1998_cnn/01_lecun_tinydigits.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "04_1998_cnn",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/04_1998_cnn/01_lecun_tinydigits.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-04_1998_cnn-02_lecun_cifar10",
+      "title": "TinyTorch 04 1998 cnn \u00b7 02 lecun cifar10",
+      "source_path": "tinytorch/milestones/04_1998_cnn/02_lecun_cifar10.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "04_1998_cnn",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/04_1998_cnn/02_lecun_cifar10.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-05_2017_transformer-01_tinygpt_shakespeare",
+      "title": "TinyTorch 05 2017 transformer \u00b7 01 tinygpt shakespeare",
+      "source_path": "tinytorch/milestones/05_2017_transformer/01_tinygpt_shakespeare.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "05_2017_transformer",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/05_2017_transformer/01_tinygpt_shakespeare.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-05_2017_transformer-02_vaswani_attention",
+      "title": "TinyTorch 05 2017 transformer \u00b7 02 vaswani attention",
+      "source_path": "tinytorch/milestones/05_2017_transformer/02_vaswani_attention.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "05_2017_transformer",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/05_2017_transformer/02_vaswani_attention.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-05_2017_transformer-03_tinycopilot",
+      "title": "TinyTorch 05 2017 transformer \u00b7 03 tinycopilot",
+      "source_path": "tinytorch/milestones/05_2017_transformer/03_tinycopilot.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "05_2017_transformer",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/05_2017_transformer/03_tinycopilot.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-05_2017_transformer-04_tinygpt_chat",
+      "title": "TinyTorch 05 2017 transformer \u00b7 04 tinygpt chat",
+      "source_path": "tinytorch/milestones/05_2017_transformer/04_tinygpt_chat.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "05_2017_transformer",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/05_2017_transformer/04_tinygpt_chat.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-06_2018_mlperf-01_optimization_olympics",
+      "title": "TinyTorch 06 2018 mlperf \u00b7 01 optimization olympics",
+      "source_path": "tinytorch/milestones/06_2018_mlperf/01_optimization_olympics.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "06_2018_mlperf",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/06_2018_mlperf/01_optimization_olympics.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-06_2018_mlperf-02_generation_speedup",
+      "title": "TinyTorch 06 2018 mlperf \u00b7 02 generation speedup",
+      "source_path": "tinytorch/milestones/06_2018_mlperf/02_generation_speedup.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "06_2018_mlperf",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/06_2018_mlperf/02_generation_speedup.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    },
+    {
+      "generator": "companion",
+      "disposition": "companion notebook",
+      "workspace_roots": [
+        "tinytorch/src",
+        "tinytorch/tito",
+        "tinytorch/tinytorch",
+        "tinytorch/tests",
+        "tinytorch/milestones",
+        "tinytorch/datasets",
+        "tinytorch/settings.ini",
+        "tinytorch/pyproject.toml",
+        "tinytorch/LICENSE",
+        "tinytorch/README.md",
+        "tinytorch/.tinyrc",
+        "tinytorch/requirements.txt",
+        "tinytorch/etc"
+      ],
+      "working_directory": "tinytorch",
+      "dependency_lock": "integrations/forge/companion-requirements.lock",
+      "timeout_seconds": 180,
+      "seed": null,
+      "config": {
+        "randomness": "Canonical source controls its RNG; no global reseeding."
+      },
+      "id": "tinytorch-07_2024_kernels-01_custom_kernels",
+      "title": "TinyTorch 07 2024 kernels \u00b7 01 custom kernels",
+      "source_path": "tinytorch/milestones/07_2024_kernels/01_custom_kernels.py",
+      "group": "tinytorch-milestones",
+      "milestone_family": "07_2024_kernels",
+      "result_kind": "measured_experiment",
+      "commands": [
+        [
+          "-m",
+          "tito",
+          "dev",
+          "export",
+          "--all"
+        ],
+        [
+          "milestones/07_2024_kernels/01_custom_kernels.py"
+        ]
+      ],
+      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
+      "capture_printed_epochs": true
+    }
+  ]
+}

@@ -1,9 +1,11 @@
 """Local catalog/build commands. Publication uses Forge's authenticated editor."""
 import argparse
 import json
+import re
 from pathlib import Path
 
 from .coverage import inventory
+from .companions import build_companion
 from .packaging import build_marimo, read_source, registered_entries, revision
 
 
@@ -28,10 +30,15 @@ def main():
     requirements = [line.strip() for line in read_source(root, commit, "integrations/forge/notebook-requirements.in").decode().splitlines()
                     if line.strip() and not line.startswith("#")]
     for entry in selected:
-        if entry.get("generator") != "marimo":
+        builder = {"marimo": build_marimo, "companion": build_companion}.get(entry.get("generator"))
+        if builder is None:
             parser.error(f"No implemented builder for {entry['id']}")
-        receipt = build_marimo(root, commit, entry, args.output / f"{entry['id']}.py", requirements,
-                               asset_reference=args.runtime_artifact)
+        selected_requirements = requirements
+        if entry.get("dependency_lock"):
+            lock = read_source(root, commit, entry["dependency_lock"]).decode()
+            selected_requirements = re.findall(r"^[a-zA-Z0-9_-]+==[^\s;\\]+", lock, re.M)
+        receipt = builder(root, commit, entry, args.output / f"{entry['id']}.py", selected_requirements,
+                          asset_reference=args.runtime_artifact)
         print(json.dumps(receipt))
 
 

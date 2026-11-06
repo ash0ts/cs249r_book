@@ -35,6 +35,10 @@ def executable_cells(source: str) -> list[tuple[int, str]]:
 
 
 def execute_analytical(path: Path, *, limit: int = 4096) -> dict:
+    # The framework initializes registry examples on import. Those solves are
+    # not evidence produced by this lesson and must precede observation.
+    import mlsysim  # noqa: F401
+
     observations = []
     omitted = 0
     unsupported = 0

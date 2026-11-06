@@ -1119,10 +1119,11 @@
       ],
       "working_directory": "tinytorch",
       "dependency_lock": "integrations/forge/companion-requirements.lock",
-      "timeout_seconds": 180,
+      "timeout_seconds": 600,
       "seed": null,
       "config": {
-        "randomness": "Canonical source controls its RNG; no global reseeding."
+        "randomness": "Canonical source controls its RNG; no global reseeding.",
+        "execution": "Unattended CPU companion; one BLAS/OpenMP thread; canonical offline sample mode for language-model milestones."
       },
       "id": "tinytorch-03_1986_mlp-01_rumelhart_tinydigits",
       "title": "TinyTorch 03 1986 mlp \u00b7 01 rumelhart tinydigits",
@@ -1142,8 +1143,9 @@
           "milestones/03_1986_mlp/01_rumelhart_tinydigits.py"
         ]
       ],
-      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
-      "capture_printed_epochs": true
+      "reason": "Run canonical TinyDigits training with terminal prompts disabled and one CPU math-library thread; preserve RNG behavior and printed metrics.",
+      "capture_printed_epochs": true,
+      "cpu_threads": 1
     },
     {
       "generator": "companion",
@@ -1258,10 +1260,11 @@
       ],
       "working_directory": "tinytorch",
       "dependency_lock": "integrations/forge/companion-requirements.lock",
-      "timeout_seconds": 180,
+      "timeout_seconds": 600,
       "seed": null,
       "config": {
-        "randomness": "Canonical source controls its RNG; no global reseeding."
+        "randomness": "Canonical source controls its RNG; no global reseeding.",
+        "execution": "Unattended CPU companion; one BLAS/OpenMP thread; canonical offline sample mode for language-model milestones."
       },
       "id": "tinytorch-05_2017_transformer-01_tinygpt_shakespeare",
       "title": "TinyTorch 05 2017 transformer \u00b7 01 tinygpt shakespeare",
@@ -1278,11 +1281,13 @@
           "--all"
         ],
         [
-          "milestones/05_2017_transformer/01_tinygpt_shakespeare.py"
+          "milestones/05_2017_transformer/01_tinygpt_shakespeare.py",
+          "--quick"
         ]
       ],
-      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
-      "capture_printed_epochs": true
+      "reason": "Run the canonical offline sample mode with original RNG behavior and one CPU math-library thread. Preserve canonical quality gates; this bounded sample execution is not a full-dataset training claim.",
+      "capture_printed_epochs": true,
+      "cpu_threads": 1
     },
     {
       "generator": "companion",
@@ -1350,10 +1355,11 @@
       ],
       "working_directory": "tinytorch",
       "dependency_lock": "integrations/forge/companion-requirements.lock",
-      "timeout_seconds": 180,
+      "timeout_seconds": 600,
       "seed": null,
       "config": {
-        "randomness": "Canonical source controls its RNG; no global reseeding."
+        "randomness": "Canonical source controls its RNG; no global reseeding.",
+        "execution": "Unattended CPU companion; one BLAS/OpenMP thread; canonical offline sample mode for language-model milestones."
       },
       "id": "tinytorch-05_2017_transformer-03_tinycopilot",
       "title": "TinyTorch 05 2017 transformer \u00b7 03 tinycopilot",
@@ -1370,11 +1376,13 @@
           "--all"
         ],
         [
-          "milestones/05_2017_transformer/03_tinycopilot.py"
+          "milestones/05_2017_transformer/03_tinycopilot.py",
+          "--quick"
         ]
       ],
-      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
-      "capture_printed_epochs": true
+      "reason": "Run the canonical offline sample mode with original RNG behavior and one CPU math-library thread. Preserve canonical quality gates; this bounded sample execution is not a full-dataset training claim.",
+      "capture_printed_epochs": true,
+      "cpu_threads": 1
     },
     {
       "generator": "companion",
@@ -1396,10 +1404,11 @@
       ],
       "working_directory": "tinytorch",
       "dependency_lock": "integrations/forge/companion-requirements.lock",
-      "timeout_seconds": 180,
+      "timeout_seconds": 600,
       "seed": null,
       "config": {
-        "randomness": "Canonical source controls its RNG; no global reseeding."
+        "randomness": "Canonical source controls its RNG; no global reseeding.",
+        "execution": "Unattended CPU companion; one BLAS/OpenMP thread; canonical offline sample mode for language-model milestones."
       },
       "id": "tinytorch-05_2017_transformer-04_tinygpt_chat",
       "title": "TinyTorch 05 2017 transformer \u00b7 04 tinygpt chat",
@@ -1416,11 +1425,13 @@
           "--all"
         ],
         [
-          "milestones/05_2017_transformer/04_tinygpt_chat.py"
+          "milestones/05_2017_transformer/04_tinygpt_chat.py",
+          "--quick"
         ]
       ],
-      "reason": "Execute the canonical milestone with its supplied dataset and original RNG behavior. Retain dataset attribution; process duration is not an MLPerf score. Inspect local logs for training and profiling output.",
-      "capture_printed_epochs": true
+      "reason": "Run the canonical offline sample mode with original RNG behavior and one CPU math-library thread. Preserve canonical quality gates; this bounded sample execution is not a full-dataset training claim.",
+      "capture_printed_epochs": true,
+      "cpu_threads": 1
     },
     {
       "generator": "companion",

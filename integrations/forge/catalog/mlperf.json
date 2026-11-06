@@ -150,10 +150,11 @@
       "working_directory": "mlperf-edu",
       "dependency_lock": "integrations/forge/mlperf-requirements.lock",
       "timeout_seconds": 300,
-      "seed": 42,
+      "seed": null,
       "result_kind": "functional_smoke",
       "config": {
-        "execution": "CPU-only canonical smoke; no benchmark score"
+        "execution": "CPU-only canonical smoke; no benchmark score",
+        "randomness": "Canonical MLPerf EDU seed selection; the verified workload report records the actual seed."
       },
       "python_paths": [
         "mlperf-edu/src"

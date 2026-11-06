@@ -24,7 +24,8 @@ dependencies are restored from the hash-pinned lock to an isolated directory
 using uv. The platform environment is not modified. The notebook needs no checkout,
 relative wheel server, or access to someone else's private artifacts. Only the
 native bootstrap is replaced; lesson calculations and controls are retained.
-Generated source must fit Forge's 10 MiB source limit.
+Generated source is capped at 3500 KiB to leave transport headroom. The artifact
+store's larger source limit does not establish that a runtime can launch it.
 
 `notebook-requirements.in` pins the direct runtime dependencies;
 `notebook-requirements.lock` records the complete resolved set and wheel hashes.

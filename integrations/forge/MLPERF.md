@@ -22,3 +22,5 @@ Original JSON/HTML/CSV reports and `.provd.json` manifests stay in the isolated 
 Each generated source retains platform markers and the official PyTorch CPU index in its dependency metadata. Linux uses CPU wheels; macOS uses the corresponding native wheels. Hosted smoke results remain functional smoke regardless of the machine running them. Readers conducting full device experiments should run the canonical CLI in their own controlled environment, then call `mlsysbook_forge.mlperf.read_report` and publish its returned evidence explicitly through a `ForgeSession` with the reported result category.
 
 Frozen companion copies intentionally do not inherit a parent checkout's Git metadata. The notebook's source commit and bundle hashes establish which canonical sources were packaged; the report's own missing-Git context remains explicit.
+
+The tutorial delegates seed selection to MLPerf EDU. Its companion does not declare a seed it never sets; use the actual `seed` in the verified workload report (including any documented `MLPERF_EDU_SEED` override). CLI lab seeds remain their explicit canonical defaults.

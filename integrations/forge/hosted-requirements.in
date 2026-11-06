@@ -1,0 +1,3 @@
+-r notebook-requirements.in
+openai==2.54.0
+weave==0.53.9

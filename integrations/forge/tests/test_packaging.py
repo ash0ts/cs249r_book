@@ -15,6 +15,8 @@ def test_standalone_bootstrap_has_no_checkout_dependency(tmp_path):
     output = io.BytesIO()
     with zipfile.ZipFile(output, "w") as z:
         z.writestr("labs/example.py", "VALUE = 17\n")
+        # A real package must win over any editable install in the test runner.
+        z.writestr("integrations/forge/src/mlsysbook_forge/__init__.py", "")
         z.writestr("integrations/forge/src/mlsysbook_forge/bootstrap.py", "def ensure_dependencies(path):\n    pass\n")
     payload = lzma.compress(output.getvalue())
     boot = textwrap.dedent(bootstrap_source(payload, {"bundle_sha256": hashlib.sha256(payload).hexdigest()}))

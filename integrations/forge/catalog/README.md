@@ -21,3 +21,9 @@ a standalone copy, and follow [publication checks](../NOTEBOOKS.md).
 All 18 canonical Co-Labs are registered. Preserve distributed-system comparisons and analytical assumptions; publish saved snapshots only.
 The original saved evidence retains model assumptions and result provenance.
 No model or device execution is inferred from a supplied trace.
+
+## Volume 3
+
+All 21 canonical Co-Labs are registered. Keep supplied instructional cases and their provenance explicit; no fabricated model executions or Weave traces.
+The original saved evidence retains model assumptions and result provenance.
+No model or device execution is inferred from a supplied trace.

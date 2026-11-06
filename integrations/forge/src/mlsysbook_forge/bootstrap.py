@@ -14,7 +14,15 @@ from pathlib import Path
 
 
 def locked_versions(lock: Path) -> dict[str, str]:
-    return dict(re.findall(r"^([a-zA-Z0-9_-]+)==([^\s;\\]+)", lock.read_text(), re.M))
+    # CPU PyTorch uses different wheel versions on Linux and macOS. Keep and
+    # evaluate the lock's environment markers instead of dropping conditions.
+    from packaging.requirements import Requirement
+    versions = {}
+    for line in re.findall(r"^[a-zA-Z0-9_-]+==[^\\\n]+", lock.read_text(), re.M):
+        requirement = Requirement(line.strip())
+        if requirement.marker is None or requirement.marker.evaluate():
+            versions[requirement.name] = next(iter(requirement.specifier)).version
+    return versions
 
 
 def ensure_dependencies(lock: Path, *, cache: Path | None = None) -> dict[str, str]:

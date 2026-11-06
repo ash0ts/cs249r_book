@@ -10,7 +10,7 @@ import subprocess
 import sys
 import time
 
-from .evidence import digest
+from .evidence import digest, sanitize
 from .training_evidence import printed_epoch_evidence, printed_profile_evidence
 
 
@@ -103,6 +103,12 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
                 break
         else:
             report["status"] = "passed"
+        for relative in entry.get("evidence_files", []):
+            evidence_path = (cwd / relative).resolve()
+            if not evidence_path.is_relative_to(workspace.resolve()):
+                raise ValueError("Evidence must remain inside the companion workspace")
+            if evidence_path.exists():
+                report.setdefault("evidence", {})[relative] = sanitize(json.loads(evidence_path.read_text()))
     except Exception as error:  # optional companion failure is evidence, not a lesson mutation
         report["status"] = "failed"
         report["error_type"] = type(error).__name__

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "entries": [{
+    "id": "hosted-tool-selection",
+    "source_path": "integrations/forge/src/mlsysbook_forge/hosted.py",
+    "group": "hosted",
+    "generator": "hosted",
+    "disposition": "companion notebook",
+    "title": "Hosted tool selection, traces and deterministic evaluation",
+    "reason": "Optional six-request synthetic model execution. Select an available model explicitly, verify current prices, and preserve outputs, tool calls and deterministic scores. No requests run on notebook load.",
+    "workspace_roots": ["integrations/forge/HOSTED.md", "integrations/forge/RESEARCH_CONTRACT.md"],
+    "dependency_lock": "integrations/forge/hosted-requirements.lock",
+    "result_kind": "hosted_model_execution",
+    "related_labs": ["v1_01_ai_triad", "v2_01_scale_illusion", "v3_01"]
+  }]
+}

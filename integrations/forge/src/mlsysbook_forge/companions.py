@@ -35,6 +35,45 @@ def normalize_marimo(path: Path) -> bytes:
 
 
 def execution_cells(entry: dict, commit: str) -> str:
+    if entry.get('generator') == 'training-sft':
+        return f'''
+@app.cell(hide_code=True)
+def _(mo):
+    from pathlib import Path
+    from mlsysbook_forge.training import prepare_sft
+    forge_execute = mo.ui.button(value=None, label="Prepare local SFT dataset", on_click=lambda _: prepare_sft(Path(".forge/training"), {commit!r}))
+    mo.vstack([mo.md("Prepare 24 frozen training demonstrations locally. Job submission remains blocked until a service-enforced cost limit can be verified. See TRAINING.md in the bundled source."), forge_execute])
+    return (forge_execute,)
+'''
+    if entry.get('generator') == 'training-rlvr':
+        return '''
+@app.cell(hide_code=True)
+def _(mo):
+    forge_rollouts = mo.ui.file(filetypes=[".json"], multiple=True)
+    mo.vstack([mo.md("Import two actual training-split rollout reports from distinct, separately budgeted attempts. Held-out evaluation reports are rejected. No model or training job runs on load."), forge_rollouts])
+    return (forge_rollouts,)
+
+
+@app.cell(hide_code=True)
+def _(mo, forge_rollouts):
+    from mlsysbook_forge.training import rlvr_groups
+    def _prepare(_):
+        import json
+        from pathlib import Path
+        try:
+            _files = forge_rollouts.value
+            if len(_files) != 2 or any(len(_file.contents) > 2 * 1024 * 1024 for _file in _files):
+                raise ValueError("Choose exactly two reports, each at most 2 MiB")
+            _result = rlvr_groups([json.loads(_file.contents) for _file in _files])
+            Path(".forge").mkdir(exist_ok=True)
+            Path(".forge/rlvr-groups.json").write_text(json.dumps(_result, indent=2))
+            return {"status": _result["status"], "groups": len(_result["trajectory_groups"]), "uniform_reward_task_ids": _result["uniform_reward_task_ids"], "unavailable_task_ids": _result["unavailable_task_ids"], "train_sha256": _result["train_sha256"], "result_kind": "hosted_model_execution", "provenance": "analysis of imported actual rollout reports; no new execution"}
+        except (ValueError, KeyError, TypeError) as _error:
+            return {"status": "invalid reports", "error_type": type(_error).__name__}
+    forge_execute = mo.ui.button(value=None, label="Prepare deterministic RLVR rewards", on_click=_prepare, disabled=len(forge_rollouts.value) != 2)
+    forge_execute
+    return (forge_execute,)
+'''
     if entry.get('generator') == 'hosted':
         template = {"endpoint": "https://api.inference.wandb.ai/v1", "project": "", "model": "",
                     "max_tokens": 256, "temperature": 0, "input_usd_per_million": None,

@@ -76,3 +76,5 @@ The package uses the repository's code license (Apache-2.0); teaching content
 retains its original attribution and content license.
 
 Optional actual model execution: [hosted tools and evaluation](HOSTED.md), with a [frozen research contract](RESEARCH_CONTRACT.md).
+
+[SFT/RLVR preparation and guarded job submission](TRAINING.md) share the hosted task and preserve checkpoint lineage. Live training requires a verified service-side cost limit.

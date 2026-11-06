@@ -70,3 +70,27 @@ def test_notebook_cache_is_inside_isolated_workspace(tmp_path):
                  "import os; from pathlib import Path; p=Path(os.environ['JUPYTER_DATA_DIR']); assert p.parent==Path.cwd().parent; p.mkdir(); (p/'marker').write_text('isolated')"]],
              'result_kind': 'functional_smoke', 'timeout_seconds': 10}
     assert execute_commands(runtime, entry, source_commit='d' * 40, directory=tmp_path / 'runs')['status'] == 'passed'
+
+
+def test_companion_source_is_canonical_before_hashing_without_execution(tmp_path):
+    import pytest
+    pytest.importorskip('marimo')
+    from mlsysbook_forge.companions import normalize_marimo
+    source = tmp_path / 'generated.py'
+    marker = tmp_path / 'must-not-execute'
+    source.write_text(f'''import marimo
+__generated_with = "0.25.1"
+app = marimo.App(width="medium", app_title='Synthetic formatter check')
+@app.cell
+def _():
+    from pathlib import Path
+    Path({str(marker)!r}).touch()
+    unused = 19 * 7
+    return unused
+if __name__ == "__main__":
+    app.run()
+''')
+    first = normalize_marimo(source)
+    assert normalize_marimo(source) == first
+    assert b'19 * 7' in first
+    assert not marker.exists()

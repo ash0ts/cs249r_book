@@ -59,6 +59,9 @@ def execute_commands(runtime: Path, entry: dict, *, source_commit: str,
                                      env.get("PATH", "")])
         env["VENV_PATH"] = sys.prefix  # TinyTorch's documented runtime selector.
         env["MPLBACKEND"] = "Agg"
+        # Notebook signing/configuration must not write into the learner's home.
+        env["JUPYTER_DATA_DIR"] = str(workspace / ".jupyter-data")
+        env["JUPYTER_CONFIG_DIR"] = str(workspace / ".jupyter-config")
         # Never inherit tracking auto-init defaults into the underlying lesson.
         env["WANDB_MODE"] = "disabled"
         cwd = workspace / entry["working_directory"]

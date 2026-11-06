@@ -18,4 +18,4 @@ Service catalog and pricing references (check again before spending):
 
 An upload failure does not erase local evidence. A `submitted` trace status does not prove remote persistence; inspect the project and record a separate private validation receipt. Private notebook, run and trace URLs do not belong in upstream teaching documentation.
 
-The hosted lock pins OpenTelemetry 1.38.0 because Weave 0.53.9 expects its requests-based exporter session. Newer 1.45 exporters remove that attribute and fail trace initialization; local model evidence remains available. Revalidate this constraint when upgrading the SDK.
+The hosted lock pins OpenTelemetry 1.43.0 because Weave 0.53.9 expects its requests-based exporter session. Newer 1.45 exporters remove that attribute and fail trace initialization; local model evidence remains available. Revalidate this constraint when upgrading the SDK.

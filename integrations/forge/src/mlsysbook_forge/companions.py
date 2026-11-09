@@ -36,6 +36,9 @@ def normalize_marimo(path: Path) -> bytes:
 
 def build_companion(root: Path, commit: str, entry: dict, output: Path, requirements: list[str],
                     *, asset_reference: str | None = None) -> dict:
+    if entry.get("generator") == "mlperf-marimo":
+        from .mlperf_notebook import build_tutorial
+        return build_tutorial(root, commit, entry, output, requirements, asset_reference=asset_reference)
     extras = (*entry["workspace_roots"], entry["dependency_lock"])
     payload, manifest = runtime_bundle(root, commit, extras,
                                       roots=("integrations/forge/src/mlsysbook_forge",))

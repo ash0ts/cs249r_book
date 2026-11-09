@@ -1,4 +1,4 @@
-# MLPerf EDU report companions
+# MLPerf EDU original tutorial and report companions
 
 CPU wheel sources are scoped to the official PyTorch `torch` and `torchvision`
 wheel pages through `--find-links`. Other dependencies resolve from PyPI. This
@@ -11,7 +11,7 @@ uv's `--find-links` compilation can omit their hash blocks even when
 `--generate-hashes` is enabled. The lock completeness test rejects such output.
 Hashes remain mandatory during installation on both macOS and Linux.
 
-Four companions cover the implemented Tutorial 01 workflow and the three implemented CLI labs. They invoke the public tutorial smoke or lab CLI, preserving its quality, finite-value and token-parity gates. The original tutorial and CLI files remain intact. The tutorial's proposed future sessions remain roadmap material.
+Tutorial 01 is packaged from its original Marimo notebook. All six lesson cells, including the automatic workload call, tables, provenance explanation and exercise, remain intact. Only portable dependency bootstrap and two optional report-tracking cells are added. The three implemented CLI labs retain separate report companions and their quality, finite-value and token-parity gates. Canonical source files remain intact. The tutorial's proposed future sessions remain roadmap material.
 
 The default runs are CPU functional smokes. Tutorial 01 uses the canonical synthetic time-series `min` profile; the other labs use their explicit `--smoke` flags. These verify functionality and reporting, not forecasting quality, convergence, or public benchmark scores. See the [canonical tutorial rules](../../mlperf-edu/tutorials/README.md).
 

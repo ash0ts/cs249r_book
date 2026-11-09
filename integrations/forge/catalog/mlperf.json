@@ -138,8 +138,8 @@
     },
     {
       "group": "mlperf",
-      "generator": "companion",
-      "disposition": "companion notebook",
+      "generator": "mlperf-marimo",
+      "disposition": "hosted notebook",
       "workspace_roots": [
         "mlperf-edu/src",
         "mlperf-edu/examples",
@@ -165,23 +165,7 @@
       "id": "mlperf-tutorial-01",
       "source_path": "mlperf-edu/tutorials/01_first_benchmark.py",
       "title": "MLPerf EDU \u00b7 Anatomy of a benchmark run",
-      "reason": "Run and analyze the same verified report/provenance workflow as Tutorial 01. Its time-series min profile is a synthetic functional smoke, never a quality baseline.",
-      "commands": [
-        [
-          "tutorials/smoke_first_benchmark.py",
-          "--output-dir",
-          "tutorial-results"
-        ],
-        [
-          "-m",
-          "mlsysbook_forge.mlperf",
-          "tutorial-results/time-series-forecasting_min_report.json",
-          "--manifest",
-          "tutorial-results/time-series-forecasting_min.provd.json",
-          "--output",
-          "forge-evidence.json"
-        ]
-      ]
+      "reason": "Preserve all original Tutorial 01 lesson cells and workload parameters; append optional report tracking after measurement."
     }
   ]
 }

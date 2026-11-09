@@ -24,6 +24,8 @@ def inventory(root: Path, commit: str) -> list[dict]:
                 disposition, reason = "excluded", "Navigation page; executable tutorial pages are inventoried individually."
         elif re.fullmatch(r"mlperf-edu/(tutorials/[^/]+\.py|examples/lab[123]_[^/]+\.py)", path):
             group, disposition, reason = "mlperf", "companion notebook", "Publish report/provenance after measurement; label synthetic runs functional smoke."
+            if path == "mlperf-edu/tutorials/01_first_benchmark.py":
+                disposition, reason = "hosted notebook", "Preserve original lesson cells and append optional report tracking after measurement."
             if "/tutorials/smoke_" in path:
                 disposition, reason = "local/hardware-only", "CI smoke entrypoint validates its corresponding teaching notebook."
         elif path.startswith("kits/") and path.endswith(".qmd"):
